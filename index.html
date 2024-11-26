@@ -1,21 +1,36 @@
 <!DOCTYPE html>
-<html lang="eng">
+<html>
 <head>
-<link rel="stylesheet" href="style.css">
+    <title>Gestion Utilisateurs</title>
+    <style>
+        .form-group {
+            margin: 10px 0;
+        }
+        .user-list {
+            margin-top: 20px;
+        }
+    </style>
 </head>
-
 <body>
-    <h1>WELCOME HAMILTON</h1>
-    <h3>For new player</h3>
-    <form onsubmit="event.preventDefault(); addingNewPlayer()">
-        <input type="text" id="newPlayer" placeholder="New player name">
-        <button type="submit">Add Player</button>
+    <h1>Gestion des Utilisateurs</h1>
+    
+    <form id="userForm">
+        <div class="form-group">
+            <label for="nom">Nom:</label>
+            <input type="text" id="nom" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+        </div>
+        <button type="submit">Ajouter Utilisateur</button>
     </form>
-<button onclick="newMatch()">New match</button>
-<div id="matchChart"></div>
 
-<h1>Match</h1>
-<h1>Score</h1>
-<script src="script.js"></script>
+    <div class="user-list">
+        <h2>Liste des Utilisateurs</h2>
+        <ul id="usersList"></ul>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

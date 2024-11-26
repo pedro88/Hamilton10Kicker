@@ -1,34 +1,51 @@
-
-
-// Exemple de fonction pour récupérer les utilisateurs depuis l'API
-fetch('http://localhost:3000/users') // Envoie une requête GET à l'API sur le serveur
-  .then(response => response.json()) // Une fois les données reçues, les convertir en JSON
-  .then(data => {
-    // Affiche les données récupérées dans la console du navigateur
-    console.log('Utilisateurs récupérés :', data);
-
-    // Exemple de traitement des données : afficher dans le DOM
-    const userList = document.getElementById('user-list'); // Sélectionne un élément HTML avec l'ID "user-list"
-    data.forEach(user => {
-      const li = document.createElement('li'); // Crée un élément <li> pour chaque utilisateur
-      li.textContent = `${user.name} - ${user.email} (${user.age} ans)`; // Définit le texte à afficher
-      userList.appendChild(li); // Ajoute l'élément <li> à la liste
-    });
-  })
-  .catch(error => console.error('Erreur lors de la récupération :', error)); // Gère les erreurs en les affichant dans la console
-
-
-
-let recordedPlayers = []
-const addingNewPlayer = () => {
-const newPlayer = document.getElementById('newPlayer');
-recordedPlayers.push(newPlayer);
-console.log('new player :')
-console.log(newPlayer);
-console.log('recorded players :')
-console.log(recordedPlayers);
+// Fonction pour charger la liste des utilisateurs
+async function chargerUtilisateurs() {
+  try {
+      const response = await fetch('http://localhost:3000/api/utilisateurs')
+      const utilisateurs = await response.json()
+      
+      const usersList = document.getElementById('usersList')
+      usersList.innerHTML = '' // Vider la liste actuelle
+      
+      utilisateurs.forEach(user => {
+          const li = document.createElement('li')
+          li.textContent = `${user.nom} - ${user.email}`
+          usersList.appendChild(li)
+      })
+  } catch (error) {
+      console.error('Erreur:', error)
+  }
 }
 
-const newMatch = () => {
-
+// Fonction pour ajouter un utilisateur
+async function ajouterUtilisateur(nom, email) {
+  try {
+      const response = await fetch('http://localhost:3000/api/utilisateurs', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ nom, email })
+      })
+      
+      if (response.ok) {
+          // Recharger la liste après l'ajout
+          chargerUtilisateurs()
+          // Vider le formulaire
+          document.getElementById('userForm').reset()
+      }
+  } catch (error) {
+      console.error('Erreur:', error)
+  }
 }
+
+// Gérer la soumission du formulaire
+document.getElementById('userForm').addEventListener('submit', async (e) => {
+  e.preventDefault()
+  const nom = document.getElementById('nom').value
+  const email = document.getElementById('email').value
+  await ajouterUtilisateur(nom, email)
+})
+
+// Charger les utilisateurs au chargement de la page
+chargerUtilisateurs()
