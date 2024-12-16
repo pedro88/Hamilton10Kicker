@@ -1,0 +1,32 @@
+body, html{
+    height : 100%
+}
+#match-setting{
+    display : grid;
+    grid-template-columns: repeat(3, 1fr);
+    height : 100%;
+
+}
+#player1{
+    grid-column: 1/2;
+    /* background-color :rgb(12, 73, 196); */
+    height : 100%;
+}
+#player2{
+    grid-column: 3/4;
+    /* background-color : rgb(196, 12, 12); */
+    height : 100%;
+}
+#match-button{
+    grid-column: 2/3;
+    border-radius: 100px;
+    width : 33%;
+    height: 20%
+    
+}
+.player{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height : 100%;
+}
