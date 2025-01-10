@@ -11,7 +11,11 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.21.1",
-    "mysql": "^2.18.1",
-    "nodemon": "^3.1.7"
-  }
+    "mariadb": "^3.4.0",
+    "three": "^0.172.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "type": "module"
 }

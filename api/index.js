@@ -1,3 +1,4 @@
+// Sert a crée les user de la classe
 const express = require("express");
 const port = process.env.PORT || 5000;
 const mysql = require("mysql");
@@ -24,8 +25,8 @@ const names = [
     "Lucas",
     "Marie",
     "Martin",
-    "Mehdi",
-    "Mehdi",
+    "MehdiG",
+    "MehdiK",
     "Najib",
     "Nicolas",
     "Pascal",
