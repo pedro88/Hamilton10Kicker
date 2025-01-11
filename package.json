@@ -12,6 +12,7 @@
   "dependencies": {
     "express": "^4.21.1",
     "mariadb": "^3.4.0",
+    "sass": "^1.83.1",
     "three": "^0.172.0"
   },
   "devDependencies": {
