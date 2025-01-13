@@ -1,2 +1,112 @@
+@import url(./reset.css);
 
+$c-blue-dark: #06065D;
+$c-blue-light: #0E49B5DD;
+$c-neutral: #A2DAE0;
+$c-red-light: #ED0101DD;
+$c-red-dark: #A70107;
 
+body {
+	width: 100%;
+	background-color: $c-neutral;
+	font-family: "Delicious Handrawn";
+
+}
+
+header {
+	nav {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		background-color: $c-red-light;
+		font-size: 23px;
+		button {
+			color: white;
+			background-color: transparent;
+			border: none;
+			border-right: 2px solid white;
+			padding: 20px 25px;
+			margin: 15px 0px;
+		}
+		button:last-child {
+			border: none
+		}
+	}
+}
+
+main {
+	.firstScreen {
+		height: calc(100vh - 98px);
+		display: flex;
+		flex-direction: column;
+
+		.two-player {
+			height: 100%;
+			form {
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+
+				.upper {
+					height: 30%;
+					background-color: $c-red-light;
+					display: inherit;
+
+					input {
+						border-radius: 15px;
+						border: 1px solid black;
+						margin: auto;
+						justify-self: center;
+						padding: 10px 30px;
+					}
+				}
+
+				.centerButton {
+					display: inherit;
+					height: 40%;background: rgb(255,0,0);
+					background: linear-gradient(165deg, $c-red-light, $c-red-light 50%, $c-blue-light 52%);
+					
+					input {
+						font-size: 32px;
+						text-shadow: 1px 1px 2px white;
+						padding: 50px;
+						border-radius: 50%;
+						border: 2px solid white;
+						background-image: url('../ressources/texture_ball.png');
+						background-size: 200%;
+						margin: auto;
+						justify-self: center;
+					}
+				}
+
+				.lower {
+					display: inherit;
+					height: 30%;
+					background-color: $c-blue-light;
+					
+					input {
+						border-radius: 15px;
+						border: 1px solid black;
+						margin: auto;
+						justify-self: center;
+						padding: 10px 30px;
+					}
+				}
+
+				br {
+					display: none;
+				}
+			}
+		}
+
+		span {
+			background-color: $c-blue-light;
+			width: 100%;
+			img {
+				margin: auto;
+				width: 100px;
+			}
+		}
+	}
+}
