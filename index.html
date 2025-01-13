@@ -1,12 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap" rel="stylesheet">
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>HAMILTON10 kicker</title>
+	<link rel="stylesheet" href="./styles/style.css" />
 </head>
+
 <body>
-    <canvas class="webgl"></canvas>
-    <script type="module" src="./script.js"></script>
+	<header>
+
+		<nav>
+			<button class="play">Play</button><button class="history">History</button><button
+				class="leaderboard">Leaderboard</button>
+		</nav>
+	</header>
+	
+	<main>
+		<div class="firstScreen">
+			<section class="two-player">
+				<form action="">
+					<div class="upper">
+						<input type="text" placeholder="Player 1" /><br>
+					</div>
+					<div class="centerButton">
+						<canvas class="webgl"></canvas>
+						<script type="module" src="./script.js"></script>						
+					</div>
+					<div class="lower">
+						<input type="text" placeholder="Player 2" />
+					</div>
+				</form>
+			</section>
+			<span><a href="#"><img src="./ressources/arrow-down-svgrepo-com.svg" alt="down arrow"></a></span>
+		</div>
+		<div class="secondScreen">
+			<section class="four-player">
+				<form action="/game">
+					<input type="text" placeholder="Player 1" />
+					<input type="text" placeholder="Player 2" />
+					<div class="centerButton">
+						<input type="submit" value="V / S" /><br>
+					</div>
+					<input type="text" placeholder="Player 3" />
+					<input type="text" placeholder="Player 4" />
+				</form>
+			</section>
+		</div>
+	</main>
+	<script src="main.js"></script>
 </body>
-</html>
