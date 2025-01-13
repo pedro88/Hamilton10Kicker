@@ -1,7 +1,8 @@
 // permet de simplement faire des query ailleurs dans le code
 
-const dotenv = require("dotenv");
-const mariadb = require("mariadb");
+import * as dotenv from 'dotenv';
+
+import mariadb from 'mariadb';
 dotenv.config();
 
 const pool = mariadb.createPool({
