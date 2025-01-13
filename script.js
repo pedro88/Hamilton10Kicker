@@ -6,7 +6,7 @@ const scene = new THREE.Scene();
 
 const geometry = new THREE.SphereGeometry(8, 48, 48);
 const material = new THREE.MeshBasicMaterial({
-	map: new THREE.TextureLoader().load("./image.jpg"),
+	map: new THREE.TextureLoader().load("./public/ressources/ballTexture.jpg"),
 });
 const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
