@@ -1,28 +1,25 @@
-const submit = document.getElementById('sub');
-const username = document.getElementById('username');
-const password = document.getElementById('password');
 
-const sendApi = async (pseudo) => {
-    console.log("IN sendApi function");
-    try {
-        const response = await fetch(`http://185.207.226.6:30125/addPlayer/${pseudo}`, {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ pseudo })
-        });
-        const data = await response.json();
-        console.log("Response data:", data);
-    } catch (error) {
-        console.error("Error:", error);
+const userInput = document.getElementById("user");
+const submitButton = document.getElementById("sub");
+const getUserButton = document.getElementById("getUsers");
+
+const addNewUser = async (username) => {
+    // Je me suis arrêter ici
+    if(username){
+        try{
+            const response = await fetch("url",{
+                method: "POST",
+                body: JSON.stringify({username: `${username}`})
+            });
+        }catch(err){
+            console.log("une Error de mort : ", err);
+        }
+    }else{
+        console.log('No username');
     }
-}
+} 
 
-submit.addEventListener("click", (event) => {
-    console.log("Submit button clicked");
+submitButton.addEventListener("click", (event) => {
     event.preventDefault();
-    const pseudo = username.value;
-    console.log("Username value:", pseudo);
-    sendApi(pseudo);
-});
+    
+})
