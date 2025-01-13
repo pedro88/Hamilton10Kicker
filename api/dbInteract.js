@@ -30,21 +30,32 @@ class dbInteract {
         return await this.aQuery(`SHOW TABLES`);
     };
 
+    // get the id by pseudo
     async getIdByPseudo(pseudo){
         return await this.aQuery(`SELECT id FROM player WHERE pseudo=?`, [pseudo]);
-    }
+    };
 
+    // create a new user
     async newUser(pseudo){
         return await this.aQuery(`INSERT INTO player (pseudo) VALUES (?)`, [pseudo]);
     };
 
-    async newTeam(playerId1, playerId2){
-        return await this.aQuery(`INSERT INTO team (id_player_1, id_player_2) VALUES (?, ?)`, [playerId1, playerId2]);
+    // create a new team
+    async newTeam(playerId1, playerId2, teamName){
+        return await this.aQuery(`INSERT INTO team (id_player_1, id_player_2, team_name) VALUES (?, ?)`, [playerId1, playerId2, teamName]);
     };
 
+    // create a new solo game
     async newSoloGame(playerId1, playerId2, score_player_1, score_player_2, id_winner){
         return await this.aQuery(`INSERT INTO solo_game (id_player_1, id_player_2, score_player_1, score_player_2, id_winner) VALUES (?, ?, ?, ?, ?)`, [playerId1, playerId2, score_player_1, score_player_2, id_winner]);
-    }
+    };
+
+    // create a new team game 
+    async newTeamGame(teamId1, teamId2, scoreTeam1, scoreTeam2, teamIdWinner){
+        return await this.aQuery(`INSERT INTO team_game (id_team_1, id_team_2, score_team_1, score_team_2, id_winner_team) VALUES (?, ?, ?, ?, ?)`, [teamId1, teamId2, scoreTeam1, scoreTeam2, teamIdWinner]);
+    };
+
+    
 
 }
 
