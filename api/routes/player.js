@@ -22,4 +22,4 @@ player.get("/prout", async (req, res) => {
 //****DISPLAY PLAYER STATS**** */
 player.get("/:playerID", async (req, res) => {});
 
-export default playerx;
+export default player;
