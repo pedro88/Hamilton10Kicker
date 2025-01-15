@@ -1,32 +1,30 @@
 import express from "express";
+import cors from "cors"; // Correct import for cors
 import game from "./routes/game.js";
 import player from "./routes/player.js";
 
-const PORT = 3000;
+const PORT = 30125; // Match the port in your client request
 
 const app = express();
 app.use(express.json());
 
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*"); // Utilise "*" ou ton domaine spécifique
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-    next();
-});
-
+// Use cors middleware with specific options
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 app.use("/", game);
-app.use("/", player);
+app.use("/player", player);
 
-// app.get("/", async (req, res) => {
-//     console.log('prout')
-//     res.send({message: 'prout'})
+// Add error handling
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
+});
 
-//     })
-
-// const playerRouter = require("./routes/player.js");
-// app.use("/player", playerRouter);
-
-app.listen(PORT, () =>
-    console.log(`Server is running: http://localhost:${PORT}/`)
+// Bind to all network interfaces
+app.listen(PORT, '0.0.0.0', () => 
+    console.log(`Server running on port ${PORT}`)
 );
