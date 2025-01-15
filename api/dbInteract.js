@@ -36,6 +36,11 @@ class dbInteract {
         return await this.aQuery(`SELECT id FROM player WHERE pseudo=?`, [pseudo]);
     };
 
+    // show all user
+    async getAllUsers(){
+        return await this.aQuery(`SELECT * FROM player`);
+    }
+
     // create a new user
     async newUser(pseudo){
         return await this.aQuery(`INSERT INTO player (pseudo) VALUES (?)`, [pseudo]);

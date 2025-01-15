@@ -14,9 +14,9 @@ player.post("/addPlayer", async (req, res) => {
 });
 
 //*****DISPLAY LEADERBOARD***** */
-player.get("/prout", async (req, res) => {
-    console.log("prout");
-    res.send({ message: "prout" });
+player.get("/playerList", async (req, res) => {
+    const result = await db.getAllUsers();
+    res.send(result);
 });
 
 //****DISPLAY PLAYER STATS**** */
