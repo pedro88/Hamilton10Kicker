@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 
 <head>
-
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>HAMILTON10 kicker</title>
-	<link rel="stylesheet" href="./public/styles/style.css" />
+	<link rel="stylesheet" href="./public/styles/index.css" />
 </head>
 
 <body>
@@ -20,7 +22,7 @@
 				class="leaderboard">Leaderboard</button>
 		</nav>
 	</header>
-	
+
 	<main>
 		<div class="firstScreen">
 			<section class="two-player">
@@ -29,26 +31,37 @@
 						<input type="text" placeholder="Player 1" /><br>
 					</div>
 					<div class="centerButton">
-						<canvas class="webgl"></canvas>
-						<script type="module" src="./script.js"></script>						
+						<button type="submit">
+							<canvas class="webgl"></canvas>
+						</button>
+						<p>V/S</p>
+						<script type="module" src="./script.js"></script>
 					</div>
 					<div class="lower">
 						<input type="text" placeholder="Player 2" />
 					</div>
 				</form>
+				<span><a href="#second-screen"><img src="./public/ressources/arrow-down-svgrepo-com.svg"
+							alt="down arrow"></a></span>
 			</section>
-			<span><a href="#"><img src="./ressources/arrow-down-svgrepo-com.svg" alt="down arrow"></a></span>
 		</div>
-		<div class="secondScreen">
+		<div class="secondScreen" id="second-screen">
 			<section class="four-player">
 				<form action="/game">
-					<input type="text" placeholder="Player 1" />
-					<input type="text" placeholder="Player 2" />
+					<div class="upper">
+						<input type="text" placeholder="Player 1" />
+						<input type="text" placeholder="Player 2" />
+					</div>
 					<div class="centerButton">
+						<button type="submit">
+							<canvas class="webg2"></canvas>
+						</button>
 						<input type="submit" value="V / S" /><br>
 					</div>
-					<input type="text" placeholder="Player 3" />
-					<input type="text" placeholder="Player 4" />
+					<div class="lower">
+						<input type="text" placeholder="Player 3" />
+						<input type="text" placeholder="Player 4" />
+					</div>
 				</form>
 			</section>
 		</div>

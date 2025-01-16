@@ -1,0 +1,178 @@
+@import url(./reset.css);
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+.firstScreen {
+  width: 100vw;
+  height: 100vh;
+}
+.firstScreen form {
+  height: 100%;
+}
+.firstScreen canvas {
+  height: 100%;
+}
+
+body {
+  background-color: #A2DAE0;
+  font-family: "Delicious Handrawn";
+  display: grid;
+}
+
+header {
+  max-width: 480px;
+}
+header nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #ED0101;
+  font-size: 23px;
+}
+header nav button {
+  color: white;
+  background-color: transparent;
+  border: none;
+  border-right: 2px solid white;
+  padding: 20px 25px;
+  margin: 15px 0px;
+}
+header nav button:last-child {
+  border: none;
+}
+
+main {
+  background-color: #0E49B5;
+}
+main .firstScreen {
+  height: calc(100vh - 98px);
+  display: flex;
+  flex-direction: column;
+}
+main .firstScreen .two-player form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+main .firstScreen .two-player form .upper {
+  background-color: #ED0101;
+  display: inherit;
+  height: 30%;
+}
+main .firstScreen .two-player form .upper input {
+  border-radius: 15px;
+  border: 1px solid black;
+  margin: auto;
+  justify-self: center;
+  padding: 10px 30px;
+}
+main .firstScreen .two-player form .centerButton {
+  height: 40%;
+  background: linear-gradient(165deg, #ED0101, #ED0101 50%, #0E49B5 52%);
+  display: grid;
+  grid-template-rows: 100%;
+  justify-content: center;
+  align-items: center;
+}
+main .firstScreen .two-player form .centerButton canvas {
+  position: relative;
+  height: 100% !important;
+  display: block;
+}
+main .firstScreen .two-player form .centerButton p {
+  color: white;
+  text-shadow: 2px 2px 5px black;
+  font-family: Anton;
+  position: absolute;
+  left: calc(50% - 48px);
+  font-weight: 800;
+  font-size: 64px;
+}
+main .firstScreen .two-player form .centerButton button {
+  background-color: transparent;
+  border: none;
+}
+main .firstScreen .two-player form .lower {
+  display: inherit;
+  height: 30%;
+}
+main .firstScreen .two-player form .lower input {
+  border-radius: 15px;
+  border: 1px solid black;
+  margin: auto;
+  justify-self: center;
+  padding: 10px 30px;
+}
+main .firstScreen span {
+  background-color: #0E49B5;
+  width: 100%;
+}
+main .firstScreen span a {
+  background-color: #0E49B5;
+}
+main .firstScreen span img {
+  background-color: #0E49B5;
+  margin: auto;
+  width: 100px;
+}
+main .secondScreen {
+  height: 100vh;
+}
+main .secondScreen .four-player {
+  height: 100%;
+}
+main .secondScreen .four-player form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+main .secondScreen .four-player form .upper {
+  background-color: #ED0101;
+  display: inherit;
+  height: 30%;
+}
+main .secondScreen .four-player form .upper input {
+  border-radius: 15px;
+  border: 1px solid black;
+  margin: auto;
+  justify-self: center;
+  padding: 10px 30px;
+}
+main .secondScreen .four-player form .centerButton {
+  height: 40%;
+  background: linear-gradient(165deg, #ED0101, #ED0101 50%, #0E49B5 52%);
+  display: grid;
+  grid-template-rows: 100%;
+  justify-content: center;
+  align-items: center;
+}
+main .secondScreen .four-player form .centerButton canvas {
+  position: relative;
+  height: 100% !important;
+  display: block;
+}
+main .secondScreen .four-player form .centerButton p {
+  color: white;
+  text-shadow: 2px 2px 5px black;
+  font-family: Anton;
+  position: absolute;
+  left: calc(50% - 48px);
+  font-weight: 800;
+  font-size: 64px;
+}
+main .secondScreen .four-player form .centerButton button {
+  background-color: transparent;
+}
+main .secondScreen .four-player form .lower {
+  display: inherit;
+  height: 30%;
+}
+main .secondScreen .four-player form .lower input {
+  border-radius: 15px;
+  border: 1px solid black;
+  margin: auto;
+  justify-self: center;
+  padding: 10px 30px;
+}
+
+/*# sourceMappingURL=index.css.map */
