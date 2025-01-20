@@ -1,25 +1,19 @@
 <!DOCTYPE html>
 
 <head>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap" rel="stylesheet">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>HAMILTON10 kicker</title>
-	<link rel="stylesheet" href="./public/styles/index.css" />
+	<link rel="stylesheet" href="./public/styles/index/index.css" />
 </head>
 
 <body>
 	<header>
 
 		<nav>
-			<button class="play">Play</button><button class="history">History</button><button
-				class="leaderboard">Leaderboard</button>
+			<a class="play" href="#">Play</a>
+			<a class="history" href="./public/pages/history.html">History</a>
+			<a class="leaderboard">Leaderboard</a>
 		</nav>
 	</header>
 
@@ -41,8 +35,11 @@
 						<input type="text" placeholder="Player 2" />
 					</div>
 				</form>
-				<span><a href="#second-screen"><img src="./public/ressources/arrow-down-svgrepo-com.svg"
-							alt="down arrow"></a></span>
+				<span>
+					<a href="#second-screen">
+						<img src="./public/ressources/arrow-down-svgrepo-com.svg" alt="down arrow">
+					</a>
+				</span>
 			</section>
 		</div>
 		<div class="secondScreen" id="second-screen">
@@ -54,9 +51,9 @@
 					</div>
 					<div class="centerButton">
 						<button type="submit">
-							<canvas class="webg2"></canvas>
+							<canvas class="webg"></canvas>
 						</button>
-						<input type="submit" value="V / S" /><br>
+						<P>v/s</P>
 					</div>
 					<div class="lower">
 						<input type="text" placeholder="Player 3" />

@@ -1,0 +1,12 @@
+@import '../reset';
+@import '../normalize';
+
+main {
+	.history {
+		width: 100%;
+
+		table {
+			margin: auto;
+		}
+	}
+}
