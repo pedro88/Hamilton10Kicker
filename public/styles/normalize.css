@@ -6,20 +6,15 @@ html {
 }
 
 body {
-  background-color: #A2DAE0;
   font-family: "Delicious Handrawn";
-  overflow: hidden;
 }
 
-header {
-  position: sticky;
-  top: 0;
-}
 header nav {
+  font-family: anton;
   width: 100%;
   display: flex;
   justify-content: center;
-  background-color: #ED0101;
+  background-color: #FF6961;
   font-size: 23px;
 }
 header nav a {

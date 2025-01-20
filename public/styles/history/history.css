@@ -47,20 +47,15 @@ html {
 }
 
 body {
-  background-color: #A2DAE0;
   font-family: "Delicious Handrawn";
-  overflow: hidden;
 }
 
-header {
-  position: sticky;
-  top: 0;
-}
 header nav {
+  font-family: anton;
   width: 100%;
   display: flex;
   justify-content: center;
-  background-color: #ED0101;
+  background-color: #FF6961;
   font-size: 23px;
 }
 header nav a {
@@ -74,9 +69,39 @@ header nav a:last-child {
   border: none;
 }
 
+main {
+  background-color: #FF6961;
+  color: white;
+  min-height: 100%;
+}
+main .leaderboard-type ul {
+  padding-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+}
+main .leaderboard-type ul a {
+  padding: 10px;
+}
+main .leaderboard-type ul a:first-child {
+  text-decoration: underline;
+}
 main .history {
+  font-size: 18px;
+  padding-top: 50px;
   width: 100%;
 }
 main .history table {
+  text-align: center;
+  width: 90%;
   margin: auto;
+}
+main .history table tr {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  border-bottom: 2px solid white;
+  padding-bottom: 5px;
+}
+main .history table td {
+  margin: 15px;
 }/*# sourceMappingURL=history.css.map */

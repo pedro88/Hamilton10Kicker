@@ -1,6 +1,7 @@
 @import '../reset';
 @import '../normalize';
 @import '../variables';
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
 @mixin center-button {
 	.centerButton {
@@ -35,11 +36,13 @@
 	}
 }
 
-main {
-	background-color: $c-blue-light;
+body {
+	overflow: hidden;
+}
 
+main {
 	.firstScreen {
-		height: calc(100vh - 68px);
+		height: calc(100vh - 75px);
 
 		.two-player {
 			height: 100%;
@@ -71,22 +74,18 @@ main {
 				@include center-button();
 
 				.lower {
+					background-color: $c-blue-light;
 					display: inherit;
 					height: 30%;
 				}
 			}
 		}
 
-		span {
+		.arrow-down {
 			background-color: $c-blue-light;
 			width: 100%;
 
-			a {
-				background-color: $c-blue-light;
-			}
-
 			img {
-				background-color: $c-blue-light;
 				margin: auto;
 				width: 100px;
 			}
@@ -96,10 +95,22 @@ main {
 
 
 	.secondScreen {
-		height: calc(100vh - 68px);
+		height: 100vh;
+		background-color: $c-red-light;
 
+		.arrow-up {
+			width: 100%;
+
+			img {
+				transform: rotate(180deg);
+				margin: auto;
+				width: 100px;
+			}
+		}
 		.four-player {
-			height: 100%;
+			background-color: $c-blue-light;
+			height: calc(100% - 100px);
+			padding-bottom: 100px;
 			form {
 				height: 100%;
 				display: flex;
@@ -125,9 +136,11 @@ main {
 				@include center-button();
 
 				.lower {
+					background-color: $c-blue-light;
 					display: inherit;
 					flex-direction: column;
 					height: 30%;
+					padding-bottom: 100px;
 				}
 			}
 		}
