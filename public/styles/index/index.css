@@ -1,24 +1,60 @@
-@import url(./reset.css);
 @import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
-.firstScreen {
+@import url("https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+img,
+picture,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+html {
   width: 100vw;
-  height: 100vh;
-}
-.firstScreen form {
-  height: 100%;
-}
-.firstScreen canvas {
-  height: 100%;
 }
 
 body {
   background-color: #A2DAE0;
   font-family: "Delicious Handrawn";
-  display: grid;
+  overflow: hidden;
+  width: 100%;
 }
 
 header {
-  max-width: 480px;
+  position: sticky;
+  top: 0;
 }
 header nav {
   width: 100%;
@@ -27,15 +63,14 @@ header nav {
   background-color: #ED0101;
   font-size: 23px;
 }
-header nav button {
+header nav a {
   color: white;
   background-color: transparent;
   border: none;
   border-right: 2px solid white;
   padding: 20px 25px;
-  margin: 15px 0px;
 }
-header nav button:last-child {
+header nav a:last-child {
   border: none;
 }
 
@@ -43,8 +78,12 @@ main {
   background-color: #0E49B5;
 }
 main .firstScreen {
-  height: calc(100vh - 98px);
+  height: calc(100vh - 68px);
+}
+main .firstScreen .two-player {
+  height: 100%;
   display: flex;
+  justify-content: space-evenly;
   flex-direction: column;
 }
 main .firstScreen .two-player form {
@@ -53,17 +92,17 @@ main .firstScreen .two-player form {
   flex-direction: column;
   justify-content: space-between;
 }
+main .firstScreen .two-player form input {
+  border-radius: 20px;
+  border: 1px solid black;
+  margin: auto;
+  justify-self: center;
+  padding: 20px 50px;
+}
 main .firstScreen .two-player form .upper {
   background-color: #ED0101;
   display: inherit;
   height: 30%;
-}
-main .firstScreen .two-player form .upper input {
-  border-radius: 15px;
-  border: 1px solid black;
-  margin: auto;
-  justify-self: center;
-  padding: 10px 30px;
 }
 main .firstScreen .two-player form .centerButton {
   height: 40%;
@@ -95,13 +134,6 @@ main .firstScreen .two-player form .lower {
   display: inherit;
   height: 30%;
 }
-main .firstScreen .two-player form .lower input {
-  border-radius: 15px;
-  border: 1px solid black;
-  margin: auto;
-  justify-self: center;
-  padding: 10px 30px;
-}
 main .firstScreen span {
   background-color: #0E49B5;
   width: 100%;
@@ -115,7 +147,7 @@ main .firstScreen span img {
   width: 100px;
 }
 main .secondScreen {
-  height: 100vh;
+  height: calc(100vh - 68px);
 }
 main .secondScreen .four-player {
   height: 100%;
@@ -126,17 +158,19 @@ main .secondScreen .four-player form {
   flex-direction: column;
   justify-content: space-between;
 }
+main .secondScreen .four-player form input {
+  border-radius: 15px;
+  border: 1px solid black;
+  margin: 10px auto;
+  justify-self: center;
+  padding: 10px 30px;
+}
 main .secondScreen .four-player form .upper {
   background-color: #ED0101;
   display: inherit;
+  justify-content: center;
+  flex-direction: column;
   height: 30%;
-}
-main .secondScreen .four-player form .upper input {
-  border-radius: 15px;
-  border: 1px solid black;
-  margin: auto;
-  justify-self: center;
-  padding: 10px 30px;
 }
 main .secondScreen .four-player form .centerButton {
   height: 40%;
@@ -162,17 +196,10 @@ main .secondScreen .four-player form .centerButton p {
 }
 main .secondScreen .four-player form .centerButton button {
   background-color: transparent;
+  border: none;
 }
 main .secondScreen .four-player form .lower {
   display: inherit;
+  flex-direction: column;
   height: 30%;
-}
-main .secondScreen .four-player form .lower input {
-  border-radius: 15px;
-  border: 1px solid black;
-  margin: auto;
-  justify-self: center;
-  padding: 10px 30px;
-}
-
-/*# sourceMappingURL=index.css.map */
+}/*# sourceMappingURL=index.css.map */
