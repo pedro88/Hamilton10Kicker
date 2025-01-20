@@ -8,16 +8,14 @@ html {
 }
 
 body {
-	background-color: $c-neutral;
+	// background-color: $c-blue-light;
 	font-family: "Delicious Handrawn";
-	overflow: hidden;
 }
 
 header {
-	position: sticky;
-	top: 0;
 	
 	nav {
+		font-family: anton;
 		width: 100%;
 		display: flex;
 		justify-content: center;
