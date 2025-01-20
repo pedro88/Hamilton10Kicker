@@ -1,132 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<link rel="stylesheet" href="../styles/history/history.css">
-	<title>History</title>
-</head>
-<body>
-	<header>
-		<nav>
-			<a class="play" href="../../index.html">Play</a>
-			<a class="history" href="#">History</a>
-			<a class="leaderboard" href="../pages/leaderboard.html">Leaderboard</a>
-		</nav>
-	</header>
+        <link rel="stylesheet" href="../styles/history/history.css" />
+        <title>History</title>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a class="play" href="../../index.html">Play</a>
+                <a class="history" href="#">History</a>
+                <a class="leaderboard" href="../pages/leaderboard.html"
+                    >Leaderboard</a
+                >
+            </nav>
+        </header>
 
-	<main>
-		<div class="leaderboard-type">
-			<ul>
-				<a href="#"><li>SOLO</li></a>
-				<a href="#"><li>DUO</li></a>
-			</ul>
-		</div>
-		<div class="history">
-			<table>
-				<thead>
-					<tr>
-						<th>Match</th>
-						<th>Score</th>
-						<th>Winner</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Meo vs Gandalf</td>
-						<td>11 - 5</td>
-						<td>Meo</td>
-					</tr>
-					<tr>
-						<td>Meo vs Saruman</td>
-						<td>11 - 5</td>
-						<td>Meo</td>
-					</tr>
-				<tr>
-					<td>Meo vs Frodo</td>
-					<td>11 - 4</td>
-					<td>Meo</td>
-				</tr>
-				<tr>
-					<td>Meo vs Sam</td>
-					<td>11 - 3</td>
-					<td>Meo</td>
-				</tr>
-				<tr>
-					<td>Meo vs Legolas</td>
-					<td>11 - 6</td>
-					<td>Meo</td>
-				</tr>
-				<tr>
-					<td>Meo vs Gimli</td>
-					<td>11 - 2</td>
-					<td>Meo</td>
-				</tr>
-				<tr>
-					<td>Meo vs Aragorn</td>
-					<td>11 - 7</td>
-					<td>Meo</td>
-				</tr>
-				<tr>
-					<td>Meo vs Boromir</td>
-					<td>11 - 8</td>
-					<td>Meo</td>
-				</tr>
-				<tr>
-					<td>Meo vs Gollum</td>
-					<td>11 - 1</td>
-					<td>Meo</td>
-				</tr>
-				<tr>
-					<td>Meo vs Sauron</td>
-					<td>11 - 9</td>
-					<td>Meo</td>
-				</tr>
-				<tr>
-					<td>Meo vs Galadriel</td>
-					<td>11 - 10</td>
-					<td>Meo</td>
-				</tr>
-				<tr>
-					<td>Meo vs Elrond</td>
-					<td>11 - 4</td>
-					<td>Meo</td>
-				</tr>
-				<tr>
-					<td>Meo vs Arwen</td>
-					<td>11 - 3</td>
-					<td>Meo</td>
-				</tr>
-				<tr>
-					<td>Meo vs Eowyn</td>
-					<td>11 - 2</td>
-					<td>Meo</td>
-				</tr>
-				<tr>
-					<td>Meo vs Faramir</td>
-					<td>11 - 5</td>
-					<td>Meo</td>
-				</tr>
-				<tr>
-					<td>Meo vs Theoden</td>
-					<td>11 - 6</td>
-					<td>Meo</td>
-				</tr>
-				<tr>
-					<td>Meo vs Denethor</td>
-					<td>11 - 7</td>
-					<td>Meo</td>
-				</tr>
-				<tr>
-					<td>Meo vs Treebeard</td>
-					<td>11 - 8</td>
-					<td>Meo</td>
-				</tr>
-				</tbody>
-			</table>
-		</div>
-	</main>
-
-</body>
+        <main>
+            <div class="leaderboard-type">
+                <ul>
+                    <a href="#"><li>SOLO</li></a>
+                    <a href="#"><li>DUO</li></a>
+                </ul>
+            </div>
+            <div class="history">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Match</th>
+                            <th>Score</th>
+                            <th>Winner</th>
+                        </tr>
+                    </thead>
+                    <tbody id="insert">
+                        <tr>
+                            <td>Meo vs Gandalf</td>
+                            <td>11 - 5</td>
+                            <td>Meo</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        <script src="../script/history.js"></script>
+    </body>
 </html>

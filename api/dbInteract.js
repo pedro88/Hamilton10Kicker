@@ -31,6 +31,14 @@ class dbInteract {
         return await this.aQuery(`SHOW TABLES`);
     };
 
+    async getHistory(){
+        return await this.aQuery(`SELECT * FROM solo_game ORDER BY created_at`);
+    }
+
+    async getNameById(id){
+        return await this.aQuery(`SELECT pseudo FROM player WHERE id=?` , [id]);
+    }
+
     // get the id by pseudo
     async getIdByPseudo(pseudo){
         return await this.aQuery(`SELECT id FROM player WHERE pseudo=?`, [pseudo]);

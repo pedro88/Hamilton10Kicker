@@ -15,7 +15,7 @@ app.use(cors({
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
-app.use("/", game);
+app.use("/game", game);
 app.use("/player", player);
 
 // Add error handling
