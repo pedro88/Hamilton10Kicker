@@ -23,7 +23,7 @@ const addNewUser = async (username) => {
 
 const apiUsers = async () => {
     try {
-        const response = await fetch("http://localhost:30125/player/playerList");
+        const response = await fetch("http://185.207.226.6:30125/player/playerList");
         const json = await response.json();
         console.log(json);
         return json;
