@@ -29,10 +29,10 @@ game.get("/history", async (req, res) => {
             const idInHistory3 = history[i].id_winner;
             const name1 = await db.getNameById(idInHistory1);
             const name2 = await db.getNameById(idInHistory2);
-            const name3 = await db.getNameById(idInHistory3);
-            history[i].id_player_1 = name1;
-            history[i].id_player_2 = name2;
-            history[i].id_winner = name3;
+            const name3 = await db.getNameById(idInHistory3); 
+            history[i].id_player_1 = name1[0].pseudo;
+            history[i].id_player_2 = name2[0].pseudo;
+            history[i].id_winner = name3[0].pseudo;
         }
         // je retourne la liste 
         res.send(history);
