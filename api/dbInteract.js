@@ -27,14 +27,17 @@ class dbInteract {
         };
     };
 
+    // just for test
     async showAllTables(){
         return await this.aQuery(`SHOW TABLES`);
     };
 
+    // get all game on solo game
     async getHistory(){
         return await this.aQuery(`SELECT * FROM solo_game ORDER BY created_at`);
     }
 
+    // convert an id by name
     async getNameById(id){
         return await this.aQuery(`SELECT pseudo FROM player WHERE id=?` , [id]);
     }

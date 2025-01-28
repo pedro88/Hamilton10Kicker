@@ -8,6 +8,7 @@ player.use(express.json());
 
 //****ADD PLAYER*** */
 player.post("/addPlayer", async (req, res) => {
+    // get player name in body
     const pseudo = req.body.username;
     await db.newUser(pseudo);
     res.send(`It's okey ${pseudo}`);
