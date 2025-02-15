@@ -13,10 +13,7 @@ game.use(express.json())
 
 
 // //*****SELECT PLAYERS***** */
-// game.get("/:player/:playerId", async (req, res) => { //player = player1/Team1 ou player2/Team1 ou player1/Team2 ou player2/Team2
 
-
-// })
 
 game.get("/history", async (req, res) => {
     try{
@@ -37,7 +34,7 @@ game.get("/history", async (req, res) => {
         // je retourne la liste 
         res.send(history);
     }catch(err){
-        console.log("Y'a une couille dans le pathés : ", err);
+        console.log("Oups la conversion a raté ! : ", err);
     }
 })
 
