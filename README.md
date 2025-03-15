@@ -54,8 +54,8 @@ Tu peux :
 
 ## 🛠️ **Technologies utilisées**
 
-- **Frontend** : Html, Css, JS
-- **Backend** : Node.js
+- **Frontend** : NextJS
+- **Backend** : NestJS
 - **Base de données** : MariaDb
 
 ---
