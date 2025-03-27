@@ -1,9 +1,8 @@
-"use client"
 export default function Home() {
 
     return (
         <div>
-            <h1>HELLO</h1>
+            <h1>Hey guys what's going on ?</h1>
         </div>
     );
 }
