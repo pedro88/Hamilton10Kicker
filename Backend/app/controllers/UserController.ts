@@ -6,9 +6,21 @@ export default class UserController {
   /**
    * Display a list of resource
    */
-  async index({}: HttpContext) {
+  async index({ response }: HttpContext) {
 
-    return 'Vous avez tous les players 😃 .'
+    try{
+      const Users = await User.all();
+
+      return response.status(200).json({
+        message: 'You got all the users 😃 .',
+        data: Users
+      })
+    }catch(error){
+      return response.status(500).json({
+        mesagge: 'A error has occur 😢 .',
+        error: error.message
+      })
+    }
   }
 
   /**
@@ -40,7 +52,28 @@ export default class UserController {
   /**
    * Show individual record
    */
-  async show({ params }: HttpContext) {}
+  async show({ params, response }: HttpContext) {
+    try {
+      const userId = params.id;
+      const user = await User.find(userId);
+  
+      if (!user) {
+        return response.status(404).json({
+          message: 'User not found'
+        });
+      }
+  
+      return response.status(200).json({
+        message: 'User details retrieved successfully',
+        data: user
+      });
+    } catch (error) {  
+      return response.status(500).json({
+        message: 'An error occurred while retrieving the user',
+        error: error.message
+      });
+    }
+  }
 
   /**
    * Edit individual record
