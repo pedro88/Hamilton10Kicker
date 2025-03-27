@@ -34,7 +34,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${lexendDeca.variable} antialiased`}
       >
-        <main className="max-w-sm">
+        <main className="ml-auto mr-auto max-w-sm">
             <Headers/>
             {children}
         </main>
