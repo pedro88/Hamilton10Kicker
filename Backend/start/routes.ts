@@ -7,10 +7,8 @@
 |
 */
 
+import PlayerController from '#controllers/PlayerController'
 import router from '@adonisjs/core/services/router'
 
-router.get('/', async () => {
-  return {
-    hello: 'world',
-  }
-})
+router.resource('Player', PlayerController)
+
