@@ -7,9 +7,8 @@ export default class extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id').primary()
       
-      // Si vous voulez des colonnes pour player_id1 et player_id2, utilisez integer()
-      table.integer('player_id1').nullable()
-      table.integer('player_id2').nullable()
+      table.integer('player_id1').unsigned().references('id').inTable('players')
+      table.integer('player_id2').unsigned().references('id').inTable('players')
 
       table.timestamp('created_at')
       table.timestamp('updated_at')
