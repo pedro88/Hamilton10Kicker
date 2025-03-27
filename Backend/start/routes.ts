@@ -7,8 +7,8 @@
 |
 */
 
-import PlayerController from '#controllers/PlayerController'
+import UserController from '#controllers/UserController'
 import router from '@adonisjs/core/services/router'
 
-router.resource('Player', PlayerController)
+router.resource('users', UserController)
 
