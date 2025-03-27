@@ -15,9 +15,6 @@ export default class extends BaseSchema {
       table.integer('defaites').notNullable()
       table.integer('level').notNullable()
       table.integer('xp').notNullable()
-      
-      table.integer('player_id1').unsigned().nullable().references('id').inTable('teams')
-      table.integer('player_id2').unsigned().nullable().references('id').inTable('teams')
     })
   }
 
