@@ -8,7 +8,6 @@ export default class extends BaseSchema {
       table.increments('id').primary()
       table.string('username').notNullable()
       table.string('password').notNullable()
-      table.string('salt').notNullable()
       table.string('email').notNullable()
       table.string('country').notNullable()
       table.integer('victoires').notNullable()

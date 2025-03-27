@@ -21,7 +21,7 @@ export default class UserController {
    */
   async store({ request, response }: HttpContext) {
     try {
-      const UserData = request.only(['username', 'password', 'salt', 'country','victoires', 'defaites', 'level', 'xp', 'email'])
+      const UserData = request.only(['username', 'password', 'country','victoires', 'defaites', 'level', 'xp', 'email'])
 
       const user = await User.create(UserData)
 
