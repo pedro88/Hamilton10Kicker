@@ -23,9 +23,6 @@ export default class User extends compose(BaseModel, AuthFinder) {
   declare password: string
 
   @column({ serializeAs: null })
-  declare salt: string
-
-  @column({ serializeAs: null })
   declare country: string
 
   @column({ serializeAs: null })
