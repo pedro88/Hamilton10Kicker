@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 const NewUserForm = () => {
     return (
-        <form className="flex flex-col space-y-2 m-4">
+        <form className="flex flex-col space-y-6 m-4">
             <div className="flex items-center">
                 <label className="w-24">Username</label>
                 <input type="text" className="flex-1 border-2 rounded p-1" />
