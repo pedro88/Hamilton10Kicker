@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import LogoH10 from "../../public/img/logoKHWhite.svg";
+import LogoH10 from "../public/img/logoKHWhite.svg";
 import Link from "next/link";
 
 const Headers = () => {
