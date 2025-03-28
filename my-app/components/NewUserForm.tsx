@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "@/components/ui/button";
 
 const NewUserForm = () => {
     return (
@@ -27,7 +28,7 @@ const NewUserForm = () => {
             </div>
             
             <div className="flex justify-end mr-1 mt-2">
-                <button className="border-2 rounded-md bg-h10red w-20">Create</button>
+                <Button>Create</Button>
             </div>
         </form>
     );
