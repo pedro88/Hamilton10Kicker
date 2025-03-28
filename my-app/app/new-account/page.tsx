@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import NewUserForm from "../components/NewUserForm";
 
 const NewAccountPage = () => {
-  return (
-    <div>NewAccountPage</div>
-  )
-}
+    return <NewUserForm/>;
+};
 
-export default NewAccountPage
+export default NewAccountPage;
