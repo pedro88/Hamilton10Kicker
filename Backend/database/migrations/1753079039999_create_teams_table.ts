@@ -6,9 +6,10 @@ export default class extends BaseSchema {
   async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id').primary()
-      
-      table.integer('player_id1').unsigned().references('id').inTable('users')
-      table.integer('player_id2').unsigned().references('id').inTable('users')
+      table.string('team_name')
+
+      table.integer('player1_id').unsigned().notNullable().references('id').inTable('users')
+      table.integer('player2_id').unsigned().notNullable().references('id').inTable('users')
 
       table.timestamp('created_at')
       table.timestamp('updated_at')

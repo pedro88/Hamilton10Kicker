@@ -10,10 +10,12 @@ export default class extends BaseSchema {
       table.string('password').notNullable()
       table.string('email').notNullable()
       table.string('country').notNullable()
-      table.integer('victoires').notNullable()
-      table.integer('defaites').notNullable()
-      table.integer('level').notNullable()
-      table.integer('xp').notNullable()
+      table.integer('victoires').notNullable().defaultTo(0)
+      table.integer('defaites').notNullable().defaultTo(0)
+      table.integer('level').notNullable().defaultTo(0)
+      table.integer('xp').notNullable().defaultTo(0)
+      table.integer('victoiresEnEquipes').notNullable().defaultTo(0)
+      table.integer('defaitesEnEquipes').notNullable().defaultTo(0)
     })
   }
 
