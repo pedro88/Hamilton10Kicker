@@ -43,4 +43,10 @@ export default class User extends compose(BaseModel, AuthFinder) {
   @column({ serializeAs: null })
   declare xp: number
 
+  @column({ serializeAs: null })
+  declare victoiresEnEquipe: number
+
+  @column({ serializeAs: null })
+  declare defaitesEnEquipe: number
+
 }

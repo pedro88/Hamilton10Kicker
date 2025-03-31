@@ -24,26 +24,21 @@ export default class UserController {
   }
 
   /**
-   * Display form to create a new record
-   */
-  public async create({ }: HttpContext) {}
-
-  /**
    * Handle form submission for the create action
    */
   async store({ request, response }: HttpContext) {
     try {
-      const UserData = request.only(['username', 'password', 'country','victoires', 'defaites', 'level', 'xp', 'email'])
+      const UserData = request.only(['username', 'password', 'country', 'email'])
 
       const user = await User.create(UserData)
 
       return response.status(201).json({
-        message: 'Player created successfully',
+        message: 'Player created successfully 😃.',
         data: user
       })
     } catch (error) {
       return response.status(500).json({
-        message: 'An error occurred while creating the player',
+        message: 'An error occurred while creating the player 😢.',
         error: error.message
       })
     }
@@ -64,29 +59,56 @@ export default class UserController {
       }
   
       return response.status(200).json({
-        message: 'User details retrieved successfully',
+        message: 'User details retrieved successfully 😃.',
         data: user
       });
     } catch (error) {  
       return response.status(500).json({
-        message: 'An error occurred while retrieving the user',
+        message: 'An error occurred while retrieving the user 😢.',
         error: error.message
       });
     }
   }
 
   /**
-   * Edit individual record
-   */
-  async edit({ params }: HttpContext) {}
-
-  /**
    * Handle form submission for the edit action
    */
-  async update({}: HttpContext) {}
+  async update({ params, request, response }: HttpContext) {
+    try{
+      const user = await User.findOrFail(params.id)
+
+      const UserData = request.only(['username', 'password', 'conutry', 'email'])
+
+      user.merge(UserData)
+
+      user.save()
+
+      return response.status(200).json({
+        data: user,
+        message: "The user has been update 😃 ." 
+      })
+    }catch(error){
+      return response.status(500).json({
+        message: "An error has occurs 😢."
+      })
+    }
+  }
 
   /**
    * Delete record
    */
-  async destroy({ params }: HttpContext) {}
+  async destroy({ params, response }: HttpContext) {
+    try{
+      const user = await User.findOrFail(params.id);
+      await user.delete()
+      
+      return response.status(200).json({
+        message : 'User destroyed 😃.'
+      })
+    }catch(error){
+      return response.status(500).json({
+        message : "An error has occure in detroying the user 😢."
+      })
+    }
+  }
 }
