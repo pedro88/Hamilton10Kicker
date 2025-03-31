@@ -17,6 +17,8 @@ import {
     SelectValue,
 } from "@/components/ui/select";
 import { useState } from "react";
+import { DropdownMenu } from "./ui/dropdown-menu";
+import SelectPlayer from "./SelectPlayer";
 
 export function CardWithForm() {
     const [gameMode, setGameMode] = useState("");
@@ -47,6 +49,7 @@ export function CardWithForm() {
                                     id="challenger"
                                     placeholder="Scoot"
                                 />
+                                <SelectPlayer></SelectPlayer>
                             </>
                         ) : (
                             ""
