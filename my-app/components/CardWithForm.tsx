@@ -42,15 +42,7 @@ export function CardWithForm() {
                             </SelectContent>
                         </Select>
                         {gameMode === "2v2" ? (
-                            <>
-                                <Label>Your Mate</Label>
-                                <Input
-                                    className="mb-2"
-                                    id="challenger"
-                                    placeholder="Scoot"
-                                />
-                                <SelectPlayer></SelectPlayer>
-                            </>
+                                <SelectPlayer/>
                         ) : (
                             ""
                         )}
@@ -58,15 +50,12 @@ export function CardWithForm() {
                     {gameMode && (
                         <div className="grid w-full items-center gap-4">
                             <div className="flex flex-col space-y-2">
-                                <Label htmlFor="challenger">
+                                <Label htmlFor="challenger" className="mt-2">
                                     Your challenger
                                 </Label>
-                                <Input id="challenger" placeholder="Hugoat" />
+                                <SelectPlayer/>
                                 {gameMode === "2v2" ? (
-                                    <Input
-                                        id="challenger"
-                                        placeholder="AlexLeFouDuBus"
-                                    />
+                                    <SelectPlayer/>
                                 ) : (
                                     ""
                                 )}
