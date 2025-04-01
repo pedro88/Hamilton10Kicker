@@ -49,7 +49,6 @@ const SelectPlayer = () => {
                         </DropdownMenuLabel>
                     ))
                 )}
-                <DropdownMenuLabel>My Account</DropdownMenuLabel>
             </DropdownMenuContent>
         </DropdownMenu>
     );
