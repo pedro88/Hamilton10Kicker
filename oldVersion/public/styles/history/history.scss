@@ -1,0 +1,50 @@
+@import '../reset';
+@import '../normalize';
+@import '../variables';
+
+
+main {
+	background-color: $c-red-light;
+	color: white;
+	min-height: calc(100%);
+
+	.leaderboard-type {
+		ul {
+			padding-top: 30px;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			text-align: center;
+
+			a {
+				padding: 10px;
+			}
+
+			a:first-child {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.history {
+		font-size: 18px;
+		padding-top: 50px;
+		width: 100%;
+
+		table {
+			text-align: center;
+			width: 90%;
+			margin: auto;
+
+			tr {
+				display: grid;
+				grid-template-columns: 2fr 1fr 1fr;
+				border-bottom: 2px solid white;
+				padding-bottom: 5px;
+			}
+
+			td {
+				margin: 15px;
+			}
+		}
+	}
+}

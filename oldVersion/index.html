@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>HAMILTON10 kicker</title>
+	<link rel="stylesheet" href="./public/styles/index/index.css" />
+</head>
+
+<body>
+	<header id="top">
+
+		<nav>
+			<a class="play" href="#">Play</a>
+			<a class="history" href="./public/pages/history.html">History</a>
+			<a class="leaderboard" href="./public/pages/leaderboard.html">Leaderboard</a>
+		</nav>
+	</header>
+
+	<main>
+		<div class="firstScreen" id="first-screen">
+			<section class="two-player">
+				<form action="">
+					<div class="upper">
+						<input type="text" placeholder="Player 1" /><br>
+					</div>
+					<div class="centerButton">
+						<button type="submit">
+							<canvas class="webgl"></canvas>
+						</button>
+						<p>V/S</p>
+						<script type="module" src="./script.js"></script>
+					</div>
+					<div class="lower">
+						<input type="text" placeholder="Player 2" />
+					</div>
+				</form>
+				<span class="arrow-down">
+					<a href="#second-screen">
+						<img src="./public/ressources/arrow-down-svgrepo-com.svg" alt="down arrow">
+					</a>
+				</span>
+			</section>
+		</div>
+		<div class="secondScreen" id="second-screen">
+			<span class="arrow-up">
+				<a href="#top">
+					<img src="./public/ressources/arrow-down-svgrepo-com.svg" alt="down arrow">
+				</a>
+			</span>
+			<section class="four-player">
+				<form action="/game">
+					<div class="upper">
+						<input type="text" placeholder="Player 1" />
+						<input type="text" placeholder="Player 2" />
+					</div>
+					<div class="centerButton">
+						<button type="submit">
+							<canvas class="webg"></canvas>
+						</button>
+						<P>v/s</P>
+					</div>
+					<div class="lower">
+						<input type="text" placeholder="Player 3" />
+						<input type="text" placeholder="Player 4" />
+					</div>
+				</form>
+			</section>
+		</div>
+	</main>
+	<!-- <script src="main.js"></script> -->
+</body>

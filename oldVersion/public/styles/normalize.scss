@@ -1,0 +1,36 @@
+@import 'variables';
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap');
+
+html {
+	min-width: 375px;
+	width: 100vw;
+}
+
+body {
+	// background-color: $c-blue-light;
+	font-family: "Delicious Handrawn";
+}
+
+header {
+	
+	nav {
+		font-family: anton;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		background-color: $c-red-light;
+		font-size: 23px;
+		a {
+			color: white;
+			background-color: transparent;
+			border: none;
+			border-right: 2px solid white;
+			padding: 20px 25px;
+		}
+		a:last-child {
+			border: none;
+		}
+	}
+}
+

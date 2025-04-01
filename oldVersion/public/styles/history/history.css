@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+img,
+picture,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+html {
+  min-width: 375px;
+  width: 100vw;
+}
+
+body {
+  font-family: "Delicious Handrawn";
+}
+
+header nav {
+  font-family: anton;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #FF6961;
+  font-size: 23px;
+}
+header nav a {
+  color: white;
+  background-color: transparent;
+  border: none;
+  border-right: 2px solid white;
+  padding: 20px 25px;
+}
+header nav a:last-child {
+  border: none;
+}
+
+main {
+  background-color: #FF6961;
+  color: white;
+  min-height: 100%;
+}
+main .leaderboard-type ul {
+  padding-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+}
+main .leaderboard-type ul a {
+  padding: 10px;
+}
+main .leaderboard-type ul a:first-child {
+  text-decoration: underline;
+}
+main .history {
+  font-size: 18px;
+  padding-top: 50px;
+  width: 100%;
+}
+main .history table {
+  text-align: center;
+  width: 90%;
+  margin: auto;
+}
+main .history table tr {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  border-bottom: 2px solid white;
+  padding-bottom: 5px;
+}
+main .history table td {
+  margin: 15px;
+}/*# sourceMappingURL=history.css.map */
