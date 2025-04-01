@@ -25,17 +25,28 @@ const friends = [
 const SelectPlayer = () => {
 
     const [player, setPlayer] = useState("");
+    const [open, setOpen] = useState(false);
 
+    const handleSelect = (name: string) => {
+        setPlayer(name);
+        setOpen(false);
+    };
 
     return (
-        <DropdownMenu>
+        <DropdownMenu open={open} onOpenChange={setOpen}>
             <DropdownMenuTrigger asChild>
                 <Button variant="outline">{player ? player : "Select player"}</Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56">
                 { friends && (
                     friends.map((f) => (
-                        <DropdownMenuLabel key={f.name} className="hover:bg-gray-50" onClick={() => setPlayer(f.name)}>{f.name}</DropdownMenuLabel>
+                        <DropdownMenuLabel 
+                            key={f.name} 
+                            className="hover:bg-gray-50" 
+                            onClick={() => handleSelect(f.name)}
+                        >
+                            {f.name}
+                        </DropdownMenuLabel>
                     ))
                 )}
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
