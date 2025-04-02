@@ -1,25 +1,15 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column } from '@adonisjs/lucid/orm'
-import { serialize } from 'v8'
 
-export default class Team extends BaseModel {
+export default class Game extends BaseModel {
   @column({ isPrimary: true })
   declare id: number
 
   @column({ serializeAs: null})
-  declare team_name: string
-
-  @column({ serializeAs: null })
-  declare player_1_id: number
-
-  @column({ serializeAs: null })
-  declare player_2_id: number
+  declare player_id_1: number;
 
   @column({ serializeAs: null})
-  declare game_won: number
-
-  @column({ serializeAs: null })
-  declare game_lost: number
+  declare player_id_2: number;
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
