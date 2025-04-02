@@ -1,5 +1,6 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import Game from '../models/game.js'
+import { request } from 'http'
 
 export default class GamesController {
   /**
@@ -29,12 +30,12 @@ export default class GamesController {
       const game = await Game.create(GameData)
 
       return response.status(201).json({
-        message: 'Player created successfully 😃.',
+        message: 'Game created successfully 😃.',
         data: game
       })
     } catch (error) {
       return response.status(500).json({
-        message: 'An error occurred while creating the player 😢.',
+        message: 'An error occurred while creating the game 😢.',
         error: error.message
       })
     }
@@ -43,7 +44,19 @@ export default class GamesController {
   /**
    * Show individual record
    */
-  async show({ params }: HttpContext) {}
+  async show({ params, response }: HttpContext) {
+    try{
+      const game = await Game.find(params.id);
+      return response.status(201).json({
+        message: 'You got the game 😃.',
+        data: game
+      })
+    }catch(error){
+      return response.status(404).json({
+        message: 'An error has occure when catching the game 😢.'
+      })
+    }
+  }
 
   /**
    * Edit individual record
