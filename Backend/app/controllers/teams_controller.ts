@@ -22,26 +22,21 @@ export default class TeamsController {
   }
 
   /**
-   * Display form to create a new record
-   */
-  async create({}: HttpContext) {}
-
-  /**
    * Handle form submission for the create action
    */
   async store({ response, request }: HttpContext) {
       try {
-          const TeamData = request.only(['team_name', 'player1_id', 'player2_id'])
+          const TeamData = request.only(['team_name', 'player_1_id', 'player_2_id'])
     
           const team = await Team.create(TeamData)
     
           return response.status(201).json({
-            message: 'Team created successfully',
+            message: 'Team created successfully 😃.',
             data: team
           })
         } catch (error) {
           return response.status(500).json({
-            message: 'An error occurred while creating the player',
+            message: 'An error occurred while creating the player 😢.',
             error: error.message
           })
       }
@@ -50,17 +45,28 @@ export default class TeamsController {
   /**
    * Show individual record
    */
-  async show({ params }: HttpContext) {}
-
-  /**
-   * Edit individual record
-   */
-  async edit({ params }: HttpContext) {}
-
-  /**
-   * Handle form submission for the edit action
-   */
-  async update({ params, request }: HttpContext) {}
+  async show({ params, response }: HttpContext) {
+    try {
+          const teamName = params.name;
+          const team = await Team.query().where('team_name', teamName).first();
+      
+          if (!team) {
+            return response.status(404).json({
+              message: 'Team not found'
+            });
+          }
+      
+          return response.status(200).json({
+            message: 'Team details retrieved successfully 😃.',
+            data: team
+          });
+        } catch (error) {  
+          return response.status(500).json({
+            message: 'An error has occurre while retrieving the team 😢.',
+            error: error.message
+          });
+        }
+  }
 
   /**
    * Delete record

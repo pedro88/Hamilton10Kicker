@@ -111,4 +111,25 @@ export default class UserController {
       })
     }
   }
+
+
+  // async userId({ params, response }: HttpContext){
+  //   try{
+
+  //     const user = await User.findOrFail(params.username);
+  //     return response.status(200).json({
+  //       message: "Yout got the usename.",
+  //       data : user.username
+  //     })
+
+  //   }catch(error){
+
+  //     return response.status(400).json({
+  //       message : "An error has occured."
+  //     })
+
+  //   }
+  // }
+
+
 }
