@@ -7,7 +7,6 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
     Select,
@@ -17,7 +16,6 @@ import {
     SelectValue,
 } from "@/components/ui/select";
 import { useState } from "react";
-import { DropdownMenu } from "./ui/dropdown-menu";
 import SelectPlayer from "./SelectPlayer";
 
 export function CardWithForm() {
