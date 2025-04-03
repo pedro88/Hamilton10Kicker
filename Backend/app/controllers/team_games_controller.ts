@@ -1,6 +1,5 @@
 import Team from '#models/team';
 import TeamGame from '#models/team_game';
-import TeamGame from '#models/team_game'
 import type { HttpContext } from '@adonisjs/core/http'
 
 export default class TeamGamesController {
@@ -70,7 +69,7 @@ export default class TeamGamesController {
   async edit({ params, request, response }: HttpContext) {
     try{
       const Tg = await Team.findByOrFail(params.id)
-      const TeamData = request.only(['team_id_1', 'team_id_2', 'winner_id', 'looser_id'])
+      const TeamData = request.only(['id', 'team_id_1', 'team_id_2', 'winner_id', 'looser_id'])
 
       if(Tg == null){
         return response.status(404).json({
@@ -79,6 +78,15 @@ export default class TeamGamesController {
       }
 
       Tg.merge(TeamData)
+      Tg.save()
+      return response.status(200).json({
+        message: 'You modified the Team_Game 😃.',
+        data: Tg
+      })
+    }catch(error){
+      return response.status(500).json({
+        message: 'An error has occure 😢.'
+      })
     }
   }
 
