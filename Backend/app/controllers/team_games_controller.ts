@@ -17,7 +17,7 @@ export default class TeamGamesController {
       }
     }catch(error){
       return response.status(500).json({
-        message: 'An error has occure 😢.'
+        message: error.message
       })
     }
   }
@@ -27,16 +27,15 @@ export default class TeamGamesController {
    */
   async store({ request, response }: HttpContext) {
     try{
-      const TeamGameData = request.only(['team_id_1', 'team_id_2', 'winner_id', 'looser_id'])
-      const TeamG = TeamGame.create(TeamGameData)
+      const TeamGameData = request.only(['team_id_1', 'team_id_2', 'winner_id', 'looser_id', 'team_1_score', 'team_2_score'])
+      TeamGame.create(TeamGameData)
 
       return response.status(200).json({
-        message: 'You created a new team 😃.',
-        data: TeamG
+        message: 'You created a new team 😃.'      
       })
     }catch(error){
       return response.status(500).json({
-        message: 'An error has occure 😢.'
+        message: error.message
       })
     }
   }
@@ -46,19 +45,20 @@ export default class TeamGamesController {
    */
   async show({ params, response }: HttpContext) {
     try{
-      const TeamG = await Team.findByOrFail(params.id)
-      if(TeamG == null){
+      const teamId = params.id;
+      const team = await Team.find(teamId);
+      if(team == null){
         return response.status(404).json({
           message: 'Team Game not found 😢.'
         })
       }
       return response.status(200).json({
           message: 'You got a team game 😃.',
-          data: TeamG
+          data: team
       })
     }catch(error){
       return response.status(500).json({
-        message: 'An error has occure 😢.'
+        message: error.message
       })
     }
   }
@@ -66,10 +66,10 @@ export default class TeamGamesController {
   /**
    * Edit individual record
    */
-  async edit({ params, request, response }: HttpContext) {
+  async update({ params, request, response }: HttpContext) {
     try{
-      const Tg = await Team.findByOrFail(params.id)
-      const TeamData = request.only(['id', 'team_id_1', 'team_id_2', 'winner_id', 'looser_id'])
+      const Tg = await TeamGame.findByOrFail("id", params.id)
+      const TeamData = request.only(['team_id_1', 'team_id_2', 'winner_id', 'looser_id', 'team_1_score', 'team_2_score'])
 
       if(Tg == null){
         return response.status(404).json({
@@ -78,14 +78,14 @@ export default class TeamGamesController {
       }
 
       Tg.merge(TeamData)
-      Tg.save()
+      await Tg.save()
       return response.status(200).json({
         message: 'You modified the Team_Game 😃.',
         data: Tg
       })
     }catch(error){
       return response.status(500).json({
-        message: 'An error has occure 😢.'
+        message: error.message
       })
     }
   }
@@ -94,5 +94,22 @@ export default class TeamGamesController {
   /**
    * Delete record
    */
-  async destroy({ params }: HttpContext) {}
+  async destroy({ params, response }: HttpContext) {
+    try{
+      const TeamG = await TeamGame.find(params.id)
+      if(TeamG == null){
+        return response.status(404).json({
+          message: 'Team game not found 😢'
+        })
+      }
+      await TeamG.delete()
+      return response.status(200).json({
+        message: `You deleted the team game ${params.id} 😃.`
+      })
+    }catch(error){
+      return response.status(500).json({
+        message: 'An error has occure 😢.'
+      })
+    }
+  }
 }

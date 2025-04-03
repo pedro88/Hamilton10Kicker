@@ -26,7 +26,7 @@ export default class TeamsController {
    */
   async store({ response, request }: HttpContext) {
       try {
-          const TeamData = request.only(['team_name', 'player_1_id', 'player_2_id'])
+          const TeamData = request.only(['team_name', 'player_1_id', 'player_2_id', 'game_won', 'game_lost'])
     
           const team = await Team.create(TeamData)
     
@@ -46,9 +46,9 @@ export default class TeamsController {
    * Show individual record
    */
   async show({ params, response }: HttpContext) {
+    console.log('id recu', params.id)
     try {
-          const teamName = params.name;
-          const team = await Team.query().where('team_name', teamName).first();
+          const team = await Team.findByOrFail("id", params.id);
       
           if (!team) {
             return response.status(404).json({
@@ -66,6 +66,25 @@ export default class TeamsController {
             error: error.message
           });
         }
+  }
+
+  async update({ params, request, response }: HttpContext){
+    try{
+      const team = await Team.findByOrFail('id', params.id)
+      const teamData = request.only(['team_name', 'player_1_id', 'player_2_id', 'game_won', 'game_lost'])
+
+      team.merge(teamData)
+      team.save()
+
+      return response.status(200).json({
+        message: `You updated the team ${params.id} 😃.`,
+        data: team
+      })
+    }catch(error){
+      return response.status(500).json({
+        message: error.message
+      })
+    }
   }
 
   /**
@@ -86,7 +105,7 @@ async destroy({ params, response }: HttpContext) {
 
     }catch(error){
       return response.status(500).json({
-        message: 'An error has occure 😢.'
+        message: error.message
       })
     }
   }

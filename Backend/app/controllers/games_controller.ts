@@ -24,7 +24,7 @@ export default class GamesController {
    */
   async store({ request, response }: HttpContext) {
     try {
-      const GameData = request.only(['player_id_1', 'player_id_2'])
+      const GameData = request.only(['player_id_1', 'player_id_2', 'winner_id', 'looser_id', 'player_1_score', 'player_2_score'])
 
       const game = await Game.create(GameData)
 
@@ -61,7 +61,7 @@ export default class GamesController {
       try{
         const game = await Game.findOrFail(params.id)
   
-        const GameData = request.only(['player_id_1', 'player_id_2', 'winner_id', 'looser_id'])
+        const GameData = request.only(['player_id_1', 'player_id_2', 'winner_id', 'looser_id', 'player_1_score', 'player_2_score'])
   
         game.merge(GameData)
   
