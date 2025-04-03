@@ -5,17 +5,17 @@ export default class TeamGame extends BaseModel {
   @column({ isPrimary: true })
   declare id: number
 
-  @column({ serializeAs: null })
+  @column({})
   declare team_id_1: number
 
-  @column({ serializeAs: null })
+  @column({})
   declare team_id_2: number
 
-  @column({ serializeAs: null })
-  declare winner_id: number
+  @column({})
+  declare winner_id: number | null
 
-  @column({ serializeAs: null })
-  declare looser_id: number
+  @column({})
+  declare looser_id: number | null
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime

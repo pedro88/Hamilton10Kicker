@@ -71,5 +71,23 @@ export default class TeamsController {
   /**
    * Delete record
    */
-  async destroy({ params }: HttpContext) {}
+async destroy({ params, response }: HttpContext) {
+    try{
+        const team = await Team.find(params.id)
+        if(team == null){
+          return response.status(404).json({
+            message: 'Team not found.'
+          })
+        }
+        await team.delete()
+        return response.status(200).json({
+          message: `You delete the team ${params.id} 😃.`
+      })
+
+    }catch(error){
+      return response.status(500).json({
+        message: 'An error has occure 😢.'
+      })
+    }
+  }
 }

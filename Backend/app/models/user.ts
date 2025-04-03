@@ -14,39 +14,39 @@ export default class User extends compose(BaseModel, AuthFinder) {
   declare id: number
 
   @column()
-  declare username: string | null
+  declare username: string
 
   @column()
   declare email: string
 
-  @column({ serializeAs: null })
+  @column()
   declare password: string
 
-  @column({ serializeAs: null })
-  declare country: string
+  @column()
+  declare country: string | null
 
-  @column({ serializeAs: null })
+  @column()
   declare victoires: number
 
-  @column({ serializeAs: null })
+  @column()
   declare defaites: number
 
-  @column({ serializeAs: null })
+  @column()
   declare victoires_Team: number
 
-  @column({ serializeAs: null })
+  @column()
   declare defaites_Team: number
 
-  @column({ serializeAs: null })
+  @column()
   declare level: number
 
-  @column({ serializeAs: null })
+  @column()
   declare xp: number
 
-  @column({ serializeAs: null })
+  @column()
   declare victoiresEnEquipe: number
 
-  @column({ serializeAs: null })
+  @column()
   declare defaitesEnEquipe: number
 
 }

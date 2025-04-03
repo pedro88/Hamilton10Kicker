@@ -1,6 +1,5 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import Game from '../models/game.js'
-import { request } from 'http'
 
 export default class GamesController {
   /**
@@ -58,18 +57,43 @@ export default class GamesController {
     }
   }
 
-  /**
-   * Edit individual record
-   */
-  async edit({ params }: HttpContext) {}
-
-  /**
-   * Handle form submission for the edit action
-   */
-  async update({ params, request }: HttpContext) {}
+  async update({ params, request, response }: HttpContext) {
+      try{
+        const game = await Game.findOrFail(params.id)
+  
+        const GameData = request.only(['player_id_1', 'player_id_2', 'winner_id', 'looser_id'])
+  
+        game.merge(GameData)
+  
+        game.save()
+  
+        return response.status(200).json({
+          data: game,
+          message: "The user has been update 😃 ." 
+        })
+      }catch(error){
+        return response.status(500).json({
+          message: "An error has occurs 😢."
+        })
+      }
+    }
 
   /**
    * Delete record
    */
-  async destroy({ params }: HttpContext) {}
+  async destroy({ params, response }: HttpContext) {
+    try{
+      const game = await Game.findOrFail(params.id);
+      await game.delete();
+
+      return response.status(201).json({
+        message: 'You deleted the game 😃.'
+
+      })
+    }catch(error){
+      return response.status(500).json({
+        message: 'An error has occure 😢.'
+      })
+    }
+  }
 }

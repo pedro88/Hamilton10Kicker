@@ -5,11 +5,17 @@ export default class Game extends BaseModel {
   @column({ isPrimary: true })
   declare id: number
 
-  @column({ serializeAs: null})
-  declare player_id_1: number;
+  @column({})
+  declare player_id_1: number | null;
 
-  @column({ serializeAs: null})
-  declare player_id_2: number;
+  @column({})
+  declare player_id_2: number | null;
+
+  @column({})
+  declare winner_id: number | null
+
+  @column({})
+  declare looser_id: number | null
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
