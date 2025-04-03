@@ -70,9 +70,7 @@ export default class UserController {
     }
   }
 
-  /**
-   * Handle form submission for the edit action
-   */
+ 
   async update({ params, request, response }: HttpContext) {
     try{
       const user = await User.findOrFail(params.id)

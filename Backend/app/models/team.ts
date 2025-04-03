@@ -6,19 +6,19 @@ export default class Team extends BaseModel {
   @column({ isPrimary: true })
   declare id: number
 
-  @column({})
+  @column()
   declare team_name: string
 
-  @column({})
+  @column()
   declare player_1_id: number
 
-  @column({})
+  @column()
   declare player_2_id: number
 
-  @column({})
+  @column()
   declare game_won: number | null
 
-  @column({})
+  @column()
   declare game_lost: number | null
 
   @column.dateTime({ autoCreate: true })
