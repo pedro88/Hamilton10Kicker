@@ -7,12 +7,12 @@ const HomePage = () => {
     return (
         <div>
             <h1 className="text-4xl text-center mt-5 mb-10">TOP SCORE</h1>
-            <div className="flex flex-col items-center">
+            <div className="flex justify-end m-3">
                 <Link href={"/start"}>
                     <Button>PLAY</Button>
                 </Link>
-                <ScoreTable/>
             </div>
+                <ScoreTable/>
         </div>
     );
 };
