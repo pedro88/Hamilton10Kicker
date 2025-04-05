@@ -129,14 +129,12 @@ const score = [
     },
 ];
 
-// TODO Try to delete the Winner column and show the winner with bold weight in player colum.
-
 const ScoreTable = () => {
     return (
         <>
             <Table className="w-88 m-auto">
                 <TableCaption>All Solo Game Score</TableCaption>
-                <TableHeader>
+                <TableHeader className="bg-gray-100">
                     <TableRow>
                         <TableHead className="w-[100px]">Match</TableHead>
                         <TableHead className="text-center">Score</TableHead>
@@ -146,7 +144,7 @@ const ScoreTable = () => {
                 <TableBody>
                     {score.map((match) => (
                         <TableRow key={match.id}>
-                            <TableCell className="">
+                            <TableCell>
                                 <span
                                     className={
                                         match.player1 === match.winner
