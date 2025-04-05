@@ -74,78 +74,6 @@ const score = [
         created_at: "16/3/24",
     },
     {
-        id: 9,
-        player1: "Sophie",
-        player2: "Laura",
-        score1: 10,
-        score2: 7,
-        winner: "Sophie",
-        created_at: "18/3/24",
-    },
-    {
-        id: 10,
-        player1: "Michel",
-        player2: "Anna",
-        score1: 10,
-        score2: 9,
-        winner: "Michel",
-        created_at: "20/3/24",
-    },
-    {
-        id: 11,
-        player1: "Lucas",
-        player2: "Pedro",
-        score1: 6,
-        score2: 10,
-        winner: "Pedro",
-        created_at: "22/3/24",
-    },
-    {
-        id: 12,
-        player1: "Marco",
-        player2: "Thomas",
-        score1: 11,
-        score2: 10,
-        winner: "Marco",
-        created_at: "25/3/24",
-    },
-    {
-        id: 13,
-        player1: "Laura",
-        player2: "Sophie",
-        score1: 10,
-        score2: 5,
-        winner: "Laura",
-        created_at: "28/3/24",
-    },
-    {
-        id: 14,
-        player1: "Anna",
-        player2: "Michel",
-        score1: 9,
-        score2: 10,
-        winner: "Michel",
-        created_at: "1/4/24",
-    },
-    {
-        id: 15,
-        player1: "Pedro",
-        player2: "Marco",
-        score1: 10,
-        score2: 8,
-        winner: "Pedro",
-        created_at: "5/4/24",
-    },
-    {
-        id: 16,
-        player1: "Sophie",
-        player2: "Lucas",
-        score1: 7,
-        score2: 10,
-        winner: "Lucas",
-        created_at: "9/4/24",
-    },
-    {
         id: 17,
         player1: "Thomas",
         player2: "Michel",
@@ -206,22 +134,60 @@ const score = [
 const ScoreTable = () => {
     return (
         <>
-            <Table>
+            <Table className="w-88 m-auto">
                 <TableCaption>All Solo Game Score</TableCaption>
                 <TableHeader>
                     <TableRow>
-                        <TableHead className="w-[100px]">Player</TableHead>
-                        <TableHead>Score</TableHead>
-                        <TableHead>Winner</TableHead>
+                        <TableHead className="w-[100px]">Match</TableHead>
+                        <TableHead className="text-center">Score</TableHead>
                         <TableHead className="text-right">Date</TableHead>
                     </TableRow>
                 </TableHeader>
                 <TableBody>
                     {score.map((match) => (
                         <TableRow key={match.id}>
-                            <TableCell className="w-36">{`${match.player1} VS ${match.player2}`}</TableCell>
-                            <TableCell className="w-20">{`${match.score1} / ${match.score2}`}</TableCell>
-                            <TableCell className="font-semibold">{match.winner}</TableCell>
+                            <TableCell className="">
+                                <span
+                                    className={
+                                        match.player1 === match.winner
+                                            ? "font-bold"
+                                            : ""
+                                    }
+                                >
+                                    {match.player1}
+                                </span>
+                                <span>{" VS "}</span>
+                                <span
+                                    className={
+                                        match.player2 === match.winner
+                                            ? "font-bold"
+                                            : ""
+                                    }
+                                >
+                                    {match.player2}
+                                </span>
+                            </TableCell>
+                            <TableCell className="text-center">
+                                <span
+                                    className={
+                                        match.player1 === match.winner
+                                            ? "font-bold"
+                                            : ""
+                                    }
+                                >
+                                    {match.score1}
+                                </span>
+                                <span>{" / "}</span>
+                                <span
+                                    className={
+                                        match.player2 === match.winner
+                                            ? "font-bold"
+                                            : ""
+                                    }
+                                >
+                                    {match.score2}
+                                </span>
+                            </TableCell>
                             <TableCell className="text-right">
                                 {match.created_at}
                             </TableCell>
