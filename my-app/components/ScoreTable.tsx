@@ -201,6 +201,8 @@ const score = [
     },
 ];
 
+// TODO Try to delete the Winner column and show the winner with bold weight in player colum.
+
 const ScoreTable = () => {
     return (
         <>
