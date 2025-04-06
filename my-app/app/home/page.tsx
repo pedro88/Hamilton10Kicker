@@ -132,7 +132,7 @@ const HomePage = () => {
                     <Button>PLAY</Button>
                 </Link>
             </div>
-                <ScoreTable score={soloScore}/>
+                <ScoreTable soloScore={soloScore}/>
         </div>
     );
 };

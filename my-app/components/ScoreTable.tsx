@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { FC } from "react";
 import {
     Table,
     TableBody,
@@ -21,11 +21,11 @@ type TypedScore = {
     created_at: string;
 };
 
-type Props = {
-    score: TypedScore[];
+type ScoreTableProps = {
+    soloScore: TypedScore[];
 };
 
-const ScoreTable = ({ score }: Props) => {
+const ScoreTable: FC<ScoreTableProps> = ({ soloScore }) => {
     return (
         <>
             <div className="space-x-20 ml-4 mb-5">
@@ -42,7 +42,7 @@ const ScoreTable = ({ score }: Props) => {
                     </TableRow>
                 </TableHeader>
                 <TableBody>
-                    {score.map((match) => (
+                    {soloScore.map((match) => (
                         <TableRow key={match.id}>
                             <TableCell>
                                 <span
