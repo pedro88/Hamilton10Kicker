@@ -127,8 +127,8 @@ const HomePage = () => {
     return (
         <div>
             <h1 className="text-4xl text-center mt-5 mb-10">TOP SCORE</h1>
-            <div className="flex justify-end absolute right-5">
-                <Link href={"/start"} className="">
+            <div className="flex justify-center mb-4">
+                <Link href={"/start"} className="absolute top-66">
                     <Button>PLAY</Button>
                 </Link>
             </div>

@@ -28,7 +28,7 @@ type ScoreTableProps = {
 const ScoreTable: FC<ScoreTableProps> = ({ soloScore }) => {
     return (
         <>
-            <div className="space-x-20 ml-4 mb-5">
+            <div className="flex place-content-between mr-4 ml-4 mb-5">
                 <Button>SOLO</Button>
                 <Button>TEAM</Button>
             </div>
