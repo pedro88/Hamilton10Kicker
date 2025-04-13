@@ -1,6 +1,6 @@
 import ScoreTable from "@/components/ScoreTable";
 import { Button } from "@/components/ui/button";
-import { fetchSoloMatches } from "../serverAction/fetchMatches";
+import { fetchSoloMatches, fetchTeamMatches } from "../serverAction/fetchMatches";
 import Link from "next/link";
 import React from "react";
 
@@ -13,7 +13,7 @@ const HomePage = () => {
                     <Button>PLAY</Button>
                 </Link>
             </div>
-                <ScoreTable fetchSoloMatches={fetchSoloMatches()}/>
+                <ScoreTable fetchSoloMatches={fetchSoloMatches()} fetchTeamMatches={fetchTeamMatches()} />
         </div>
     );
 };
