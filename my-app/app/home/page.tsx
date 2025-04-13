@@ -13,7 +13,7 @@ const HomePage = () => {
                     <Button>PLAY</Button>
                 </Link>
             </div>
-                <ScoreTable soloScore={fetchSoloMatches()}/>
+                <ScoreTable fetchSoloMatches={fetchSoloMatches()}/>
         </div>
     );
 };

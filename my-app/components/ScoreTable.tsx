@@ -1,5 +1,5 @@
 "use client";
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import {
     Table,
     TableBody,
@@ -22,18 +22,31 @@ type TypedScore = {
 };
 
 type ScoreTableProps = {
-    soloScore: TypedScore[];
+    fetchSoloMatches: TypedScore[];
 };
 
-const ScoreTable: FC<ScoreTableProps> = ({ soloScore }) => {
+const ScoreTable: FC<ScoreTableProps> = ({ fetchSoloMatches }) => {
+    const [matchType, setMatchType] = useState<string>("");
+    const [displayMatch, setDisplayMatch] = useState<TypedScore[]>();
+
+    const handleSoloGame = () => {
+        setMatchType("SOLO");
+        setDisplayMatch(fetchSoloMatches);
+    }
+
+    const handleTeamGame = () => {
+        setMatchType("TEAM");
+        
+    }
+
     return (
         <>
             <div className="flex place-content-between mr-4 ml-4 mb-5">
-                <Button>SOLO</Button>
-                <Button>TEAM</Button>
+                <Button onClick={handleSoloGame}>SOLO</Button>
+                <Button onClick={handleTeamGame}>TEAM</Button>
             </div>
             <Table className="w-88 m-auto">
-                <TableCaption>All Solo Game Score</TableCaption>
+                <TableCaption>⚽ Choose your match type ⚽</TableCaption>
                 <TableHeader className="bg-gray-100">
                     <TableRow>
                         <TableHead className="w-[100px]">Match</TableHead>
@@ -42,7 +55,7 @@ const ScoreTable: FC<ScoreTableProps> = ({ soloScore }) => {
                     </TableRow>
                 </TableHeader>
                 <TableBody>
-                    {soloScore.map((match) => (
+                    {displayMatch && displayMatch.map((match) => (
                         <TableRow key={match.id}>
                             <TableCell>
                                 <span
