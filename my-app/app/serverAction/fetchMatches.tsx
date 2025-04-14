@@ -1,4 +1,6 @@
 // 'use server'
+// this is a server action component, with this
+// you can make api call from client component to server component
 
 export function fetchSoloMatches() {
 
@@ -224,4 +226,4 @@ export function fetchTeamMatches() {
     return teamScore;
 }
 
-export default fetchTeamMatches
+export default fetchTeamMatches // Find this in ScoreTable.tsx

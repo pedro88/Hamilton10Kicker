@@ -28,16 +28,22 @@ type ScoreTableProps = {
     fetchTeamMatches: TypedScore[];
 };
 
-const ScoreTable: FC<ScoreTableProps> = ({ fetchSoloMatches, fetchTeamMatches }) => {
+const ScoreTable: FC<ScoreTableProps> = ({
+    fetchSoloMatches,
+    fetchTeamMatches,
+}) => {
+    const [matchType, setMatchType] = useState<string>("");
     const [displayMatch, setDisplayMatch] = useState<TypedScore[]>();
 
     const handleSoloGame = () => {
+        setMatchType("SOLO");
         setDisplayMatch(fetchSoloMatches);
-    }
+    };
 
     const handleTeamGame = () => {
+        setMatchType("TEAM");
         setDisplayMatch(fetchTeamMatches);
-    }
+    };
 
     return (
         <>
@@ -55,55 +61,74 @@ const ScoreTable: FC<ScoreTableProps> = ({ fetchSoloMatches, fetchTeamMatches })
                     </TableRow>
                 </TableHeader>
                 <TableBody>
-                    {displayMatch && displayMatch.map((match) => (
-                        <TableRow key={match.id}>
-                            <TableCell>
-                                <span
-                                    className={
-                                        match.player1 === match.winner
-                                            ? "font-bold"
-                                            : ""
-                                    }
-                                >
-                                    {match.player1}
-                                </span>
-                                <span>{" VS "}</span>
-                                <span
-                                    className={
-                                        match.player2 === match.winner
-                                            ? "font-bold"
-                                            : ""
-                                    }
-                                >
-                                    {match.player2}
-                                </span>
-                            </TableCell>
-                            <TableCell className="text-center">
-                                <span
-                                    className={
-                                        match.player1 === match.winner
-                                            ? "font-bold"
-                                            : ""
-                                    }
-                                >
-                                    {match.score1}
-                                </span>
-                                <span>{" / "}</span>
-                                <span
-                                    className={
-                                        match.player2 === match.winner
-                                            ? "font-bold"
-                                            : ""
-                                    }
-                                >
-                                    {match.score2}
-                                </span>
-                            </TableCell>
-                            <TableCell className="text-right">
-                                {match.created_at}
-                            </TableCell>
-                        </TableRow>
-                    ))}
+                    {displayMatch &&
+                        displayMatch.map((match) => (
+                            <TableRow key={match.id}>
+                                <TableCell>
+                                    <span
+                                        className={
+                                            matchType === "SOLO"
+                                                ? match.player1 === match.winner
+                                                    ? "font-bold"
+                                                    : ""
+                                                : match.team1 === match.winner
+                                                ? "font-bold"
+                                                : ""
+                                        }
+                                    >
+                                        {matchType === "SOLO"
+                                            ? match.player1
+                                            : match.team1}
+                                    </span>
+                                    <span>{" VS "}</span>
+                                    <span
+                                        className={
+                                            matchType === "SOLO"
+                                                ? match.player2 === match.winner
+                                                    ? "font-bold"
+                                                    : ""
+                                                : match.team2 === match.winner
+                                                ? "font-bold"
+                                                : ""
+                                        }
+                                    >
+                                        {matchType === "SOLO" ? match.player2 : match.team2}
+                                    </span>
+                                </TableCell>
+                                <TableCell className="text-center">
+                                    <span
+                                        className={
+                                            matchType === "SOLO"
+                                                ? match.player2 === match.winner
+                                                    ? "font-bold"
+                                                    : ""
+                                                : match.team2 === match.winner
+                                                ? "font-bold"
+                                                : ""
+                                        }
+                                    >
+                                        {match.score1}
+                                    </span>
+                                    <span>{" / "}</span>
+                                    <span
+                                        className={
+                                            matchType === "SOLO"
+                                                ? match.player2 === match.winner
+                                                    ? "font-bold"
+                                                    : ""
+                                                : match.team2 === match.winner
+                                                ? "font-bold"
+                                                : ""
+                                        }
+                                    >
+                                        {match.score2}
+                                    </span>
+                                </TableCell>
+                                <TableCell className="text-right">
+                                    {match.created_at}
+                                </TableCell>
+                            </TableRow>
+                        ))}
                 </TableBody>
             </Table>
         </>

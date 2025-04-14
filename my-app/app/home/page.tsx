@@ -7,12 +7,12 @@ import React from "react";
 const HomePage = () => {
     return (
         <div>
-            <h1 className="text-4xl text-center mt-5 mb-10">TOP SCORE</h1>
             <div className="flex justify-center mb-4">
-                <Link href={"/start"} className="absolute top-66">
+                <Link href={"/start"} className="">
                     <Button>PLAY</Button>
                 </Link>
             </div>
+            <h1 className="text-4xl text-center mt-5 mb-10">TOP SCORE</h1>
                 <ScoreTable fetchSoloMatches={fetchSoloMatches()} fetchTeamMatches={fetchTeamMatches()} />
         </div>
     );
