@@ -12,7 +12,7 @@ const ScorePage = () => {
         <div>
             <div className="flex justify-center mb-4">
                 <Button asChild>
-                    <Link href={"/start"} className="">
+                    <Link href={"start"} className="">
                         PLAY
                     </Link>
                 </Button>

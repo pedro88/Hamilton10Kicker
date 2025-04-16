@@ -6,7 +6,7 @@ import Link from "next/link";
 const Headers = () => {
     return (
         <header className="flex justify-center">
-            <Link href="/">
+            <Link href="/home">
                 <Image src={LogoH10} alt="Logo" width={150} />
             </Link>
         </header>
