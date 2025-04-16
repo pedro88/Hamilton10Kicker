@@ -1,5 +1,5 @@
 import { fetchUsers } from "@/app/serverAction/fetchUsers";
-import { CardWithForm } from "@/components/CardWithForm";
+import CardWithForm from "@/components/CardWithForm";
 import React from "react";
 
 const StartPage = () => {

@@ -15,10 +15,18 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
-import { useState } from "react";
+import { useState, FC } from "react";
 import SelectPlayer from "./SelectPlayer";
 
-export function CardWithForm({ fetchUsers }) {
+type User = {
+    name: string
+}
+
+type CardWithFormProps = {
+    fetchUsers: User[]
+}
+
+const CardWithForm: FC<CardWithFormProps> = ({ fetchUsers }) => {
     const [gameMode, setGameMode] = useState("");
 
     return (
@@ -69,3 +77,5 @@ export function CardWithForm({ fetchUsers }) {
         </Card>
     );
 }
+
+export default CardWithForm;

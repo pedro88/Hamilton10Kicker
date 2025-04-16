@@ -6,9 +6,17 @@ import {
     DropdownMenuLabel,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useState } from "react";
+import { useState, FC } from "react";
 
-const SelectPlayer = ({ fetchUsers }) => {
+type User = {
+    name: string
+}
+
+type SelectPlayerProps = {
+    fetchUsers: User[]
+}
+
+const SelectPlayer: FC<SelectPlayerProps> = ({ fetchUsers }) => {
 
     const [player, setPlayer] = useState("");
     const [open, setOpen] = useState(false);
