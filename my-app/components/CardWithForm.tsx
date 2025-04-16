@@ -18,7 +18,7 @@ import {
 import { useState } from "react";
 import SelectPlayer from "./SelectPlayer";
 
-export function CardWithForm() {
+export function CardWithForm({ fetchUsers }) {
     const [gameMode, setGameMode] = useState("");
 
     return (
@@ -40,7 +40,7 @@ export function CardWithForm() {
                             </SelectContent>
                         </Select>
                         {gameMode === "2v2" ? (
-                                <SelectPlayer/>
+                                <SelectPlayer fetchUsers={fetchUsers}/>
                         ) : (
                             ""
                         )}
@@ -51,9 +51,9 @@ export function CardWithForm() {
                                 <Label htmlFor="challenger" className="mt-2">
                                     Your challenger
                                 </Label>
-                                <SelectPlayer/>
+                                <SelectPlayer fetchUsers={fetchUsers}/>
                                 {gameMode === "2v2" ? (
-                                    <SelectPlayer/>
+                                    <SelectPlayer fetchUsers={fetchUsers}/>
                                 ) : (
                                     ""
                                 )}

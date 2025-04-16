@@ -8,24 +8,11 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useState } from "react";
 
-const friends = [
-    { name: "michou" },
-    { name: "callo" },
-    { name: "alice" },
-    { name: "bob" },
-    { name: "charlie" },
-    { name: "david" },
-    { name: "eva" },
-    { name: "frank" },
-    { name: "grace" },
-    { name: "hannah" }
-];
-
-
-const SelectPlayer = () => {
+const SelectPlayer = ({ fetchUsers }) => {
 
     const [player, setPlayer] = useState("");
     const [open, setOpen] = useState(false);
+    const users = fetchUsers;
 
     const handleSelect = (name: string) => {
         setPlayer(name);
@@ -38,8 +25,8 @@ const SelectPlayer = () => {
                 <Button variant="outline">{player ? player : "Select player"}</Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56">
-                { friends && (
-                    friends.map((f) => (
+                { users && (
+                    users.map((f) => (
                         <DropdownMenuLabel 
                             key={f.name} 
                             className="hover:bg-gray-50" 

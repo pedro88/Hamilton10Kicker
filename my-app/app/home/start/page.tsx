@@ -1,3 +1,4 @@
+import { fetchUsers } from "@/app/serverAction/fetchUsers";
 import { CardWithForm } from "@/components/CardWithForm";
 import React from "react";
 
@@ -6,7 +7,7 @@ const StartPage = () => {
         <div>
             <h1 className="text-4xl text-center mt-5 mb-10">IT&#39;S TIME TO PLAY !</h1>
             <div className="flex justify-center">
-                <CardWithForm />
+                <CardWithForm fetchUsers={fetchUsers()}/>
             </div>
         </div>
     );
