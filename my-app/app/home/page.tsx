@@ -1,21 +1,18 @@
-import ScoreTable from "@/components/ScoreTable";
-import { Button } from "@/components/ui/button";
-import { fetchSoloMatches, fetchTeamMatches } from "../serverAction/fetchMatches";
-import Link from "next/link";
-import React from "react";
+import { Button } from '@/components/ui/button'
+import Link from 'next/link'
+import React from 'react'
 
 const HomePage = () => {
     return (
-        <div>
-            <div className="flex justify-center mb-4">
-                <Link href={"/start"} className="">
-                    <Button>PLAY</Button>
-                </Link>
-            </div>
-            <h1 className="text-4xl text-center mt-5 mb-10">TOP SCORE</h1>
-                <ScoreTable fetchSoloMatches={fetchSoloMatches()} fetchTeamMatches={fetchTeamMatches()} />
-        </div>
-    );
-};
+        <>
+            <Button className='w-full h-20 text-3xl mt-40 mb-5' asChild>
+                <Link href={"/home/score"}>SCORE</Link>
+            </Button>
+            <Button className='w-full h-20 text-3xl mb-5' asChild>
+                <Link href={"/home/start"}>PLAY</Link>
+            </Button>
+        </>
+    )
+}
 
-export default HomePage;
+export default HomePage
