@@ -8,14 +8,16 @@ const HomePage = () => {
     return (
         <>
             <div className="flex flex-col items-center">
-                <ProfileOverview FetchUserProfile={FetchUserProfile()}/>
+                <ProfileOverview FetchUserProfile={FetchUserProfile()} />
             </div>
-            <Button className="w-full h-20 text-3xl mt-20 mb-5" asChild>
-                <Link href={"/home/score"}>SCORE</Link>
-            </Button>
-            <Button className="w-full h-20 text-3xl mb-5" asChild>
-                <Link href={"/home/start"}>PLAY</Link>
-            </Button>
+            <div className="flex justify-center space-x-20">
+                <Button className="h-15 text-2xl mb-5" asChild>
+                    <Link href={"/home/score"}>SCORE</Link>
+                </Button>
+                <Button className="h-15 text-2xl mb-5" asChild>
+                    <Link href={"/home/start"}>PLAY</Link>
+                </Button>
+            </div>
         </>
     );
 };
