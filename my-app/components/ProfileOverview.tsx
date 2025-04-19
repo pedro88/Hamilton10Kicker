@@ -4,14 +4,14 @@ import quentinjpg from "@/public/img/quentin.jpg";
 import { User } from "@/utils/type";
 
 type ProfileOverviewProps = {
-    fetchUserProfile: User;
+    FetchUserProfile: User;
 };
 
-const ProfileOverview: FC<ProfileOverviewProps> = ({ fetchUserProfile }) => {
-    const user = fetchUserProfile;
+const ProfileOverview: FC<ProfileOverviewProps> = ({ FetchUserProfile }) => {
+    const user = FetchUserProfile;
     return (
-        <div className="flex flex-col items-center">
-            <div className="relative w-20 h-20 overflow-hidden rounded-full">
+        <div className="flex flex-row items-center">
+            <div className="relative w-20 h-20 overflow-hidden rounded-full mr-15">
                 <Image
                     src={quentinjpg}
                     alt="Photo de profil"
@@ -19,8 +19,8 @@ const ProfileOverview: FC<ProfileOverviewProps> = ({ fetchUserProfile }) => {
                     className="object-cover"
                 />
             </div>
-            <div>
-                <p>{user.name}</p>
+            <div className="font-bold">
+                <p>{user.username}</p>
                 <p>Level : {user.level}</p>
                 <p>
                     Solo W/L : {user.won_game}/{user.lost_game}

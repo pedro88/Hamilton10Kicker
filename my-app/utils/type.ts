@@ -1,6 +1,6 @@
 
 export type User = {
-    name: string;
+    username: string;
     xp: number;
     level: number;
     won_game: number;

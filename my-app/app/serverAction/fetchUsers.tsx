@@ -1,9 +1,9 @@
 // "use server"
 
-export function fetchUserProfile() {
-    const users = 
+export function FetchUserProfile() {
+    const user = 
         {
-            name: "QuentinLeS",
+            username: "QuentinLeS",
             xp: 83,
             level: 4,
             won_game: 32,
@@ -12,5 +12,5 @@ export function fetchUserProfile() {
             lost_team_game: 4,
         };
 
-    return users;
+    return user;
 }
