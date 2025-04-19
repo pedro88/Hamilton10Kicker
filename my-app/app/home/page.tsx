@@ -11,10 +11,10 @@ const HomePage = () => {
                 <ProfileOverview FetchUserProfile={FetchUserProfile()} />
             </div>
             <div className="flex justify-center space-x-20 fixed bottom-5 w-full">
-                <Button className="h-15 text-2xl mb-5" asChild>
+                <Button className="h-15 mb-5" size={"lg"} asChild>
                     <Link href={"/home/score"}>SCORE</Link>
                 </Button>
-                <Button className="h-15 text-2xl mb-5" asChild>
+                <Button className="h-15 mb-5" size={"lg"} asChild>
                     <Link href={"/home/start"}>PLAY</Link>
                 </Button>
             </div>

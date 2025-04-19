@@ -47,11 +47,11 @@ const ScoreTable: FC<ScoreTableProps> = ({
 
     return (
         <>
-            <div className="flex place-content-between mr-4 ml-4 mb-5">
-                <Button onClick={handleSoloGame}>SOLO</Button>
-                <Button onClick={handleTeamGame}>TEAM</Button>
+            <div className="flex justify-center space-x-20 z-50 fixed bottom-10 w-full">
+                <Button onClick={handleSoloGame} size={"lg"}>SOLO</Button>
+                <Button onClick={handleTeamGame} size={"lg"}>TEAM</Button>
             </div>
-            <Table className="w-88 m-auto">
+            <Table className="w-88 m-auto mb-25">
                 <TableCaption>⚽ Choose your match type ⚽</TableCaption>
                 <TableHeader className="bg-gray-100">
                     <TableRow>
