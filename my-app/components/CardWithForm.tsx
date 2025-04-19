@@ -19,10 +19,6 @@ import { useState, FC } from "react";
 import SelectPlayer from "./SelectPlayer";
 import { FriendUserList } from "@/utils/type";
 
-type User = {
-    name: string
-}
-
 type CardWithFormProps = {
     FetchFriendWithUserId: FriendUserList[]
 }
