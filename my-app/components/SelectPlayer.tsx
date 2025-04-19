@@ -6,21 +6,18 @@ import {
     DropdownMenuLabel,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { FriendUserList, User } from "@/utils/type";
 import { useState, FC } from "react";
 
-type User = {
-    name: string
-}
-
 type SelectPlayerProps = {
-    fetchUsers: User[]
+    FetchFriendWithUserId: FriendUserList[]
 }
 
-const SelectPlayer: FC<SelectPlayerProps> = ({ fetchUsers }) => {
+const SelectPlayer: FC<SelectPlayerProps> = ({ FetchFriendWithUserId }) => {
 
     const [player, setPlayer] = useState("");
     const [open, setOpen] = useState(false);
-    const users = fetchUsers;
+    const users = FetchFriendWithUserId;
 
     const handleSelect = (name: string) => {
         setPlayer(name);
@@ -36,11 +33,11 @@ const SelectPlayer: FC<SelectPlayerProps> = ({ fetchUsers }) => {
                 { users && (
                     users.map((f) => (
                         <DropdownMenuLabel 
-                            key={f.name} 
+                            key={f.username} 
                             className="hover:bg-gray-50" 
-                            onClick={() => handleSelect(f.name)}
+                            onClick={() => handleSelect(f.username)}
                         >
-                            {f.name}
+                            {f.username}
                         </DropdownMenuLabel>
                     ))
                 )}

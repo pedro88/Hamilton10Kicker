@@ -14,3 +14,30 @@ export function FetchUserProfile() {
 
     return user;
 }
+
+export function FetchFriendWithUserId() {
+    const userList = [
+        {
+            id: 4,
+            username: "Hugo"
+        },
+        {
+            id: 5,
+            username: "Martin"
+        },
+        {
+            id: 6,
+            username: "Robin"
+        },
+        {
+            id: 7,
+            username: "Nico"
+        },
+        {
+            id: 8,
+            username: "Pierre"
+        }
+    ];
+
+    return userList;
+}

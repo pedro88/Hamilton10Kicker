@@ -8,3 +8,8 @@ export type User = {
     won_team_game: number;
     lost_team_game: number;
 }
+
+export type FriendUserList = {
+    id: number;
+    username: string;
+}

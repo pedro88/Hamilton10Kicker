@@ -17,16 +17,17 @@ import {
 } from "@/components/ui/select";
 import { useState, FC } from "react";
 import SelectPlayer from "./SelectPlayer";
+import { FriendUserList } from "@/utils/type";
 
 type User = {
     name: string
 }
 
 type CardWithFormProps = {
-    fetchUsers: User[]
+    FetchFriendWithUserId: FriendUserList[]
 }
 
-const CardWithForm: FC<CardWithFormProps> = ({ fetchUsers }) => {
+const CardWithForm: FC<CardWithFormProps> = ({ FetchFriendWithUserId }) => {
     const [gameMode, setGameMode] = useState("");
 
     return (
@@ -48,7 +49,7 @@ const CardWithForm: FC<CardWithFormProps> = ({ fetchUsers }) => {
                             </SelectContent>
                         </Select>
                         {gameMode === "2v2" ? (
-                                <SelectPlayer fetchUsers={fetchUsers}/>
+                                <SelectPlayer FetchFriendWithUserId={FetchFriendWithUserId}/>
                         ) : (
                             ""
                         )}
@@ -59,9 +60,9 @@ const CardWithForm: FC<CardWithFormProps> = ({ fetchUsers }) => {
                                 <Label htmlFor="challenger" className="mt-2">
                                     Your challenger
                                 </Label>
-                                <SelectPlayer fetchUsers={fetchUsers}/>
+                                <SelectPlayer FetchFriendWithUserId={FetchFriendWithUserId}/>
                                 {gameMode === "2v2" ? (
-                                    <SelectPlayer fetchUsers={fetchUsers}/>
+                                    <SelectPlayer FetchFriendWithUserId={FetchFriendWithUserId}/>
                                 ) : (
                                     ""
                                 )}
