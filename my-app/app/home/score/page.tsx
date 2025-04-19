@@ -10,14 +10,7 @@ import React from "react";
 const ScorePage = () => {
     return (
         <div>
-            <div className="flex justify-center mb-4">
-                <Button asChild>
-                    <Link href={"start"} className="">
-                        PLAY
-                    </Link>
-                </Button>
-            </div>
-            <h1 className="text-4xl text-center mt-5 mb-10">TOP SCORE</h1>
+            <h1 className="text-4xl text-center mb-10">TOP SCORE</h1>
             <ScoreTable
                 fetchSoloMatches={fetchSoloMatches()}
                 fetchTeamMatches={fetchTeamMatches()}

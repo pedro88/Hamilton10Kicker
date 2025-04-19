@@ -12,7 +12,7 @@ const ProfileOverview: FC<ProfileOverviewProps> = ({ FetchUserProfile }) => {
     const user = FetchUserProfile;
     return (
         <div className="flex flex-row items-center mb-10">
-            <div className="relative w-30 h-30 overflow-hidden rounded-full mr-10">
+            <div className="relative w-30 h-30 overflow-hidden rounded-full mr-15">
                 <Image
                     src={quentinjpg}
                     alt="Photo de profil"
