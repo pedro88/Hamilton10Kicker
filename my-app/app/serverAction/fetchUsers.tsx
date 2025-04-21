@@ -42,7 +42,7 @@ export function FetchFriendWithUserId() {
     return userList;
 }
 
-export function FtechRecentUserMatch() {
+export function FetchRecentUserMatch() {
     const userMatch = [
         {
             id: 2,
