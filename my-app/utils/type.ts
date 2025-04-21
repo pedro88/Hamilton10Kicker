@@ -19,7 +19,7 @@ export type Match = {
     player1?: string;
     player2?: string;
     team1?: string;
-    team2?: string;
+    team2?: string; 
     score1: number;
     score2: number;
     winner: string;
