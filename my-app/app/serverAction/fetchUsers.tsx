@@ -41,3 +41,45 @@ export function FetchFriendWithUserId() {
 
     return userList;
 }
+
+export function FtechRecentUserMatch() {
+    const userMatch = [
+        {
+            id: 2,
+            player1: "QuentinLeS",
+            player2: "Pedro",
+            score1: 11,
+            score2: 9,
+            winner: "QuentinLeS",
+            created_at: "28/3/25",
+        },
+        {
+            id: 4,
+            player1: "QuentinLeS",
+            player2: "Hugo",
+            score1: 1,
+            score2: 11,
+            winner: "Hugo",
+            created_at: "21/3/25",
+        },
+        {
+            id: 5,
+            player1: "Nicoach",
+            player2: "QuentinLeS",
+            score1: 11,
+            score2: 4,
+            winner: "QuentinLeS",
+            created_at: "15/3/25",
+        },
+        {
+            id: 9,
+            player1: "Antoine",
+            player2: "QuentinLeS",
+            score1: 11,
+            score2: 9,
+            winner: "QuentinLeS",
+            created_at: "3/3/25",
+        }
+    ]
+    return userMatch;
+}
