@@ -13,9 +13,10 @@ import { Match } from "@/utils/type";
 
 type RecentGameProps = {
     FetchRecentUserMatch: Match[];
-}
+};
 
-const RecentGame: FC<RecentGameProps> = ({FetchRecentUserMatch}) => {
+const RecentGame: FC<RecentGameProps> = ({ FetchRecentUserMatch }) => {
+    const RecentMatch = FetchRecentUserMatch;
 
     return (
         <>
@@ -29,50 +30,34 @@ const RecentGame: FC<RecentGameProps> = ({FetchRecentUserMatch}) => {
                     </TableRow>
                 </TableHeader>
                 <TableBody>
-                    {displayMatch &&
-                        displayMatch.map((match) => (
+                    {RecentMatch &&
+                        RecentMatch.map((match) => (
                             <TableRow key={match.id}>
                                 <TableCell>
                                     <span
                                         className={
-                                            matchType === "SOLO"
-                                                ? match.player1 === match.winner
-                                                    ? "font-bold"
-                                                    : ""
-                                                : match.team1 === match.winner
+                                            match.player1 === match.winner
                                                 ? "font-bold"
                                                 : ""
                                         }
                                     >
-                                        {matchType === "SOLO"
-                                            ? match.player1
-                                            : match.team1}
+                                        {match.player1}
                                     </span>
                                     <span>{" VS "}</span>
                                     <span
                                         className={
-                                            matchType === "SOLO"
-                                                ? match.player2 === match.winner
-                                                    ? "font-bold"
-                                                    : ""
-                                                : match.team2 === match.winner
+                                            match.player2 === match.winner
                                                 ? "font-bold"
                                                 : ""
                                         }
                                     >
-                                        {matchType === "SOLO"
-                                            ? match.player2
-                                            : match.team2}
+                                        {match.player2}
                                     </span>
                                 </TableCell>
                                 <TableCell className="text-center">
                                     <span
                                         className={
-                                            matchType === "SOLO"
-                                                ? match.player2 === match.winner
-                                                    ? "font-bold"
-                                                    : ""
-                                                : match.team2 === match.winner
+                                            match.player2 === match.winner
                                                 ? "font-bold"
                                                 : ""
                                         }
@@ -82,11 +67,7 @@ const RecentGame: FC<RecentGameProps> = ({FetchRecentUserMatch}) => {
                                     <span>{" / "}</span>
                                     <span
                                         className={
-                                            matchType === "SOLO"
-                                                ? match.player2 === match.winner
-                                                    ? "font-bold"
-                                                    : ""
-                                                : match.team2 === match.winner
+                                            match.player2 === match.winner
                                                 ? "font-bold"
                                                 : ""
                                         }
