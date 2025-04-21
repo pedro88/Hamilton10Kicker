@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import React from "react";
 import { FetchUserProfile } from "../serverAction/fetchUsers";
+import RecentGame from "@/components/RecentGame";
 
 const HomePage = () => {
     return (
@@ -10,7 +11,10 @@ const HomePage = () => {
             <div className="flex flex-col items-center">
                 <ProfileOverview FetchUserProfile={FetchUserProfile()} />
             </div>
-            <div className="flex justify-center space-x-20 fixed bottom-5 w-full">
+            <article>
+                <RecentGame/>
+            </article>
+            <div className="flex space-x-20 fixed bottom-5 w-full">
                 <Button className="h-15 mb-5" size={"lg"} asChild>
                     <Link href={"/home/score"}>SCORE</Link>
                 </Button>
