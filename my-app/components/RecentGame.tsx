@@ -9,8 +9,13 @@ import {
     TableHeader,
     TableRow,
 } from "./ui/table";
+import { Match } from "@/utils/type";
 
-const RecentGame: FC = ({FetchRecentUserMatch}) => {
+type RecentGameProps = {
+    FetchRecentUserMatch: Match[];
+}
+
+const RecentGame: FC<RecentGameProps> = ({FetchRecentUserMatch}) => {
 
     return (
         <>
