@@ -10,22 +10,11 @@ import {
     TableRow,
 } from "./ui/table";
 import { Button } from "./ui/button";
-
-type TypedScore = {
-    id: number;
-    player1?: string;
-    player2?: string;
-    team1?: string;
-    team2?: string;
-    score1: number;
-    score2: number;
-    winner: string;
-    created_at: string;
-};
+import { Match } from "@/utils/type";
 
 type ScoreTableProps = {
-    fetchSoloMatches: TypedScore[];
-    fetchTeamMatches: TypedScore[];
+    fetchSoloMatches: Match[];
+    fetchTeamMatches: Match[];
 };
 
 const ScoreTable: FC<ScoreTableProps> = ({
@@ -33,7 +22,7 @@ const ScoreTable: FC<ScoreTableProps> = ({
     fetchTeamMatches,
 }) => {
     const [matchType, setMatchType] = useState<string>("");
-    const [displayMatch, setDisplayMatch] = useState<TypedScore[]>();
+    const [displayMatch, setDisplayMatch] = useState<Match[]>();
 
     const handleSoloGame = () => {
         setMatchType("SOLO");
