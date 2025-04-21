@@ -2,7 +2,7 @@ import ProfileOverview from "@/components/ProfileOverview";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import React from "react";
-import { FetchUserProfile } from "../serverAction/fetchUsers";
+import { FetchRecentUserMatch, FetchUserProfile } from "../serverAction/fetchUsers";
 import RecentGame from "@/components/RecentGame";
 
 const HomePage = () => {
@@ -12,7 +12,7 @@ const HomePage = () => {
                 <ProfileOverview FetchUserProfile={FetchUserProfile()} />
             </div>
             <article>
-                <RecentGame/>
+                <RecentGame FetchRecentUserMatch={FetchRecentUserMatch()}/>
             </article>
             <div className="flex space-x-20 fixed bottom-5 w-full">
                 <Button className="h-15 mb-5" size={"lg"} asChild>

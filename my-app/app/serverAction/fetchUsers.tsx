@@ -67,7 +67,7 @@ export function FetchRecentUserMatch() {
             player1: "Nicoach",
             player2: "QuentinLeS",
             score1: 11,
-            score2: 4,
+            score2: 5,
             winner: "QuentinLeS",
             created_at: "15/3/25",
         },
