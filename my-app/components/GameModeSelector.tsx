@@ -19,12 +19,17 @@ import { useState, FC } from "react";
 import SelectPlayer from "./SelectPlayer";
 import { FriendUserList } from "@/utils/type";
 
-type CardWithFormProps = {
-    FetchFriendWithUserId: FriendUserList[]
-}
+type GameModeSelectorProps = {
+    FetchFriendWithUserId: FriendUserList[];
+};
 
-const CardWithForm: FC<CardWithFormProps> = ({ FetchFriendWithUserId }) => {
+const GameModeSelector: FC<GameModeSelectorProps> = ({
+    FetchFriendWithUserId,
+}) => {
     const [gameMode, setGameMode] = useState("");
+    const [ally, setAlly] = useState("");
+    const [challenger1, setChallenger1] = useState("");
+    const [challenger2, setChallenger2] = useState("");
 
     return (
         <Card className="w-[350px]">
@@ -45,7 +50,16 @@ const CardWithForm: FC<CardWithFormProps> = ({ FetchFriendWithUserId }) => {
                             </SelectContent>
                         </Select>
                         {gameMode === "2v2" ? (
-                                <SelectPlayer FetchFriendWithUserId={FetchFriendWithUserId}/>
+                            <>
+                                <Label htmlFor="Ally" className="mt-2">
+                                    Your team
+                                </Label>
+                                <SelectPlayer
+                                    FetchFriendWithUserId={
+                                        FetchFriendWithUserId}
+                                        onPlayerSelect={setAlly}
+                                />
+                            </>
                         ) : (
                             ""
                         )}
@@ -56,9 +70,19 @@ const CardWithForm: FC<CardWithFormProps> = ({ FetchFriendWithUserId }) => {
                                 <Label htmlFor="challenger" className="mt-2">
                                     Your challenger
                                 </Label>
-                                <SelectPlayer FetchFriendWithUserId={FetchFriendWithUserId}/>
+                                <SelectPlayer
+                                    FetchFriendWithUserId={
+                                        FetchFriendWithUserId
+                                    }
+                                    onPlayerSelect={setChallenger1}
+                                />
                                 {gameMode === "2v2" ? (
-                                    <SelectPlayer FetchFriendWithUserId={FetchFriendWithUserId}/>
+                                    <SelectPlayer
+                                        FetchFriendWithUserId={
+                                            FetchFriendWithUserId
+                                        }
+                                        onPlayerSelect={setChallenger2}
+                                    />
                                 ) : (
                                     ""
                                 )}
@@ -67,12 +91,11 @@ const CardWithForm: FC<CardWithFormProps> = ({ FetchFriendWithUserId }) => {
                     )}
                 </form>
             </CardContent>
-            <CardFooter className="flex justify-between">
-                <Button variant="outline">Clear</Button>
-                <Button onClick={() => console.log(gameMode)}>GO ⚽</Button>
+            <CardFooter className="flex justify-end">
+                <Button onClick={() => console.log(challenger2)}>GO ⚽</Button>
             </CardFooter>
         </Card>
     );
-}
+};
 
-export default CardWithForm;
+export default GameModeSelector;
