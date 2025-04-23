@@ -11,16 +11,20 @@ import { useState, FC } from "react";
 
 type SelectPlayerProps = {
     FetchFriendWithUserId: FriendUserList[]
+    onPlayerSelect: (name: string) => void;
 }
 
-const SelectPlayer: FC<SelectPlayerProps> = ({ FetchFriendWithUserId }) => {
+const SelectPlayer: FC<SelectPlayerProps> = ({ 
+    FetchFriendWithUserId,
+    onPlayerSelect}) => {
 
     const [player, setPlayer] = useState("");
     const [open, setOpen] = useState(false);
-    const users = FetchFriendWithUserId;
+    const friends = FetchFriendWithUserId;
 
     const handleSelect = (name: string) => {
         setPlayer(name);
+        onPlayerSelect(name);
         setOpen(false);
     };
 
@@ -30,8 +34,8 @@ const SelectPlayer: FC<SelectPlayerProps> = ({ FetchFriendWithUserId }) => {
                 <Button variant="outline">{player ? player : "Select player"}</Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56">
-                { users && (
-                    users.map((f) => (
+                { friends && (
+                    friends.map((f) => (
                         <DropdownMenuLabel 
                             key={f.username} 
                             className="hover:bg-gray-50" 
