@@ -14,7 +14,7 @@ const HomePage = () => {
             <article>
                 <RecentGame FetchRecentUserMatch={FetchRecentUserMatch()}/>
             </article>
-            <div className="flex space-x-50 fixed bottom-5 w-full">
+            <div className="flex justify-center space-x-45 w-sm fixed bottom-5 ">
                 <Button className="h-15 mb-5" size={"lg"} asChild>
                     <Link href={"/home/score"}>SCORE</Link>
                 </Button>
