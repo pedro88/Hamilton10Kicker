@@ -4,10 +4,9 @@ const app = express();
 
 const PORT = 3000;
 
-app.get('/', (request: Request, response: Response) => {
-    console.log("Called")
-    response.send(["PROUT"])
-})
+const testRouter = require("./controllers/TestController");
+
+app.use("/test", testRouter);
 
 app.listen(PORT, () => {
     console.log(`Running on Port ${PORT}`);
