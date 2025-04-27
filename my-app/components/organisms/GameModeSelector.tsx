@@ -92,7 +92,7 @@ const GameModeSelector: FC<GameModeSelectorProps> = ({
                 </form>
             </CardContent>
             <CardFooter className="flex justify-end">
-                <Button onClick={() => console.log(challenger2)}>GO ⚽</Button>
+                <Button onClick={() => console.log(`Ally : ${ally}, challenger1 : ${challenger1}, challenger2 : ${challenger2}`)}>GO ⚽</Button>
             </CardFooter>
         </Card>
     );
