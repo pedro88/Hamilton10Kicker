@@ -9,7 +9,7 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
-import { Match } from "@/utils/type";
+import { Match } from "@/lib/type";
 
 type RecentGameProps = {
     FetchRecentUserMatch: Match[];

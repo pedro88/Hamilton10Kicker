@@ -25,10 +25,3 @@ export type Match = {
     winner: string;
     created_at: string;
 };
-
-export type NewUserForm = {
-    username: string;
-    email: string;
-    password: string;
-    country: string;
-}
