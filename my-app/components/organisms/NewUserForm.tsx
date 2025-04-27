@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { newUserSchema, NewUser } from "@/lib/schema/newUser";
+import SelectCountry from "@/components/molecules/SelectCountry"
+import { allCountry } from "@/app/serverAction/fetchCountry";
 
 const NewUserForm = () => {
     const {
@@ -70,14 +72,15 @@ const NewUserForm = () => {
 
             <div className="flex items-center">
                 <label className="w-24">Country</label>
-                <input
+                {/* <input
                     type="text"
                     className={errors.country
                             ? "flex-1 border-2 rounded p-1  border-red-500"
                             : "flex-1 border-2 rounded p-1 "
                     }
                     {...register("country")}
-                />
+                /> */}
+                <SelectCountry data={allCountry()}/>
             </div>
 
             <div className="flex justify-end mr-1 mt-2">
