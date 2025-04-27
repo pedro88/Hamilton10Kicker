@@ -1,10 +1,8 @@
 import ScoreTable from "@/components/organisms/ScoreTable";
-import { Button } from "@/components/ui/button";
 import {
     fetchSoloMatches,
     fetchTeamMatches,
 } from "../../serverAction/fetchMatches";
-import Link from "next/link";
 import React from "react";
 
 const ScorePage = () => {
