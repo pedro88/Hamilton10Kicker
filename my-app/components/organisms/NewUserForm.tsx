@@ -1,15 +1,30 @@
-"use client"
+"use client";
 import React from "react";
-import { useForm, SubmitHandler } from "react-hook-form"
+import { useForm, SubmitHandler } from "react-hook-form";
 import { Button } from "@/components/ui/button";
-import { NewUser } from "@/lib/schema/newUser";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { newUserSchema, NewUser } from "@/lib/schema/newUser";
 
 const NewUserForm = () => {
-    const { register, handleSubmit } = useForm<NewUser>();
+    const {
+        register,
+        handleSubmit,
+        control,
+        formState: { errors },
+    } = useForm<NewUser>({
+        resolver: zodResolver(newUserSchema),
+        defaultValues: {
+            username: "",
+            email: "",
+            password: "",
+            country: "",
+        },
+    });
 
     const createANewUser: SubmitHandler<NewUser> = (data) => {
-        console.log(data)
-    }
+        console.log(data);
+    };
 
     return (
         <form
@@ -20,7 +35,10 @@ const NewUserForm = () => {
                 <label className="w-24">Username</label>
                 <input
                     type="text"
-                    className="flex-1 border-2 rounded p-1"
+                    className={errors.username
+                            ? "flex-1 border-2 rounded p-1  border-red-500"
+                            : "flex-1 border-2 rounded p-1 "
+                    }
                     {...register("username")}
                 />
             </div>
@@ -29,7 +47,10 @@ const NewUserForm = () => {
                 <label className="w-24">Email</label>
                 <input
                     type="email"
-                    className="flex-1 border-2 rounded p-1"
+                    className={errors.email
+                            ? "flex-1 border-2 rounded p-1  border-red-500"
+                            : "flex-1 border-2 rounded p-1 "
+                    }
                     {...register("email")}
                 />
             </div>
@@ -38,7 +59,11 @@ const NewUserForm = () => {
                 <label className="w-24">Password</label>
                 <input
                     type="password"
-                    className="flex-1 border-2 rounded p-1"
+                    className={errors.password
+                            ? "flex-1 border-2 rounded p-1  border-red-500"
+                            : "flex-1 border-2 rounded p-1 "
+                    }
+                    placeholder="Min 8 character"
                     {...register("password")}
                 />
             </div>
@@ -47,7 +72,10 @@ const NewUserForm = () => {
                 <label className="w-24">Country</label>
                 <input
                     type="text"
-                    className="flex-1 border-2 rounded p-1"
+                    className={errors.country
+                            ? "flex-1 border-2 rounded p-1  border-red-500"
+                            : "flex-1 border-2 rounded p-1 "
+                    }
                     {...register("country")}
                 />
             </div>
