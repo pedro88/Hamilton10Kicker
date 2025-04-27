@@ -83,8 +83,8 @@ const NewUserForm = () => {
                 />
             </div>
 
-            <div className="flex justify-end mr-1 mt-2">
-                <Button type="submit">Create</Button>
+            <div>
+                <Button type="submit" className="w-full">Create</Button>
             </div>
         </form>
     );

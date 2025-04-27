@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 const Login = () => {
     return (
@@ -21,8 +22,13 @@ const Login = () => {
                             className="flex-1 border-2 rounded p-1"
                         />
                     </div>
-                    <div className="flex justify-end">
-                        <Button>Sign in</Button>
+                    <Button className="w-full h-10">Sign in</Button>
+                    <hr className="mb-3" />
+                    <div className="flex justify-center">
+                        <h1 className="text-2xl">No account ?</h1>
+                        <Link href="/new-account" className="ml-5">
+                            <Button size="sm">Create</Button>
+                        </Link>
                     </div>
                 </form>
             </div>
