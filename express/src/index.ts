@@ -1,11 +1,13 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
 
 const app = express();
 
 const PORT = 3000;
 
-const testRouter = require("./controllers/TestController");
+const sourceRouter = require("./routes/source");
+const testRouter = require("./routes/test");
 
+app.use("/", sourceRouter);
 app.use("/test", testRouter);
 
 app.listen(PORT, () => {
