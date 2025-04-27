@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/select";
 import { useState, FC } from "react";
 import SelectPlayer from "../molecules/SelectPlayer";
-import { FriendUserList } from "@/utils/type";
+import { FriendUserList } from "@/lib/type";
 
 type GameModeSelectorProps = {
     FetchFriendWithUserId: FriendUserList[];

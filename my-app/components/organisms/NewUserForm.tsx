@@ -2,16 +2,19 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form"
 import { Button } from "@/components/ui/button";
-import type { NewUserForm } from "@/utils/type";
+import { NewUser } from "@/lib/schema/newUser";
 
 const NewUserForm = () => {
-    const { register, handleSubmit } = useForm<NewUserForm>();
-    const onSubmit: SubmitHandler<NewUserForm> = (data) => console.log(data);
+    const { register, handleSubmit } = useForm<NewUser>();
+
+    const createANewUser: SubmitHandler<NewUser> = (data) => {
+        console.log(data)
+    }
 
     return (
         <form
             className="flex flex-col space-y-6 m-4"
-            onSubmit={handleSubmit(onSubmit)}
+            onSubmit={handleSubmit(createANewUser)}
         >
             <div className="flex items-center">
                 <label className="w-24">Username</label>
