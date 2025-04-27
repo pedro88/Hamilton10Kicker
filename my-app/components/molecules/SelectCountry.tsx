@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import { Check, ChevronsUpDown } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -18,17 +18,30 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover";
+import { FieldError } from "react-hook-form";
 
 type SelectCountryProps = {
     onSelectCountry: (name: string) => void;
     data: string[];
+    value?: string;
+    reject?: FieldError;
 };
 
-const SelectCountry: FC<SelectCountryProps> = ({ onSelectCountry, data }) => {
+const SelectCountry: FC<SelectCountryProps> = ({
+    onSelectCountry,
+    data,
+    value: externalValue,
+    reject,
+}) => {
     const [open, setOpen] = React.useState(false);
     const [value, setValue] = React.useState("");
-
     const countryData = data;
+
+    useEffect(() => {
+        if (externalValue !== undefined) {
+            setValue(externalValue);
+        }
+    }, [externalValue]);
 
     const handleSelect = (val: string) => {
         setValue(val);
@@ -43,7 +56,11 @@ const SelectCountry: FC<SelectCountryProps> = ({ onSelectCountry, data }) => {
                     variant="outline"
                     role="combobox"
                     aria-expanded={open}
-                    className="w-[200px] justify-between"
+                    className={
+                        reject
+                            ? "w-64 rounded p-1 justify-between border-red-500"
+                            : "w-64 rounded p-1 justify-between"
+                    }
                 >
                     {value
                         ? countryData.find((country) => country === value)
