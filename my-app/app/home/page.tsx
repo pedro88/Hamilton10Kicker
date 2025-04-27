@@ -1,9 +1,9 @@
-import ProfileOverview from "@/components/ProfileOverview";
+import ProfileOverview from "@/components/molecules/ProfileOverview";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import React from "react";
 import { FetchRecentUserMatch, FetchUserProfile } from "../serverAction/fetchUsers";
-import RecentGame from "@/components/RecentGame";
+import RecentGame from "@/components/organisms/RecentGame";
 
 const HomePage = () => {
     return (

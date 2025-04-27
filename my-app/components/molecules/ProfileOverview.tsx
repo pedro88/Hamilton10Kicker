@@ -2,7 +2,7 @@ import Image from "next/image";
 import React, { FC } from "react";
 import quentinjpg from "@/public/img/quentin.jpg";
 import { User } from "@/utils/type";
-import { Progress } from "./ui/progress";
+import { Progress } from "../ui/progress";
 
 type ProfileOverviewProps = {
     FetchUserProfile: User;

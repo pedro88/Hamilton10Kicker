@@ -1,5 +1,5 @@
 import { FetchFriendWithUserId } from "@/app/serverAction/fetchUsers";
-import GameModeSelector from "@/components/GameModeSelector";
+import GameModeSelector from "@/components/organisms/GameModeSelector";
 import React from "react";
 
 const StartPage = () => {

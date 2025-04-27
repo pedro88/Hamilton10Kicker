@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Login from "../components/Login";
+import Login from "../components/organisms/Login";
 import { Button } from "@/components/ui/button";
 
 export default function Home() {
