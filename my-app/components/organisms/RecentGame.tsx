@@ -1,5 +1,5 @@
 "use client";
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import {
     Table,
     TableBody,
@@ -8,40 +8,20 @@ import {
     TableHead,
     TableHeader,
     TableRow,
-} from "./ui/table";
-import { Button } from "./ui/button";
+} from "@/components/ui/table";
 import { Match } from "@/utils/type";
 
-type ScoreTableProps = {
-    fetchSoloMatches: Match[];
-    fetchTeamMatches: Match[];
+type RecentGameProps = {
+    FetchRecentUserMatch: Match[];
 };
 
-const ScoreTable: FC<ScoreTableProps> = ({
-    fetchSoloMatches,
-    fetchTeamMatches,
-}) => {
-    const [matchType, setMatchType] = useState<string>("");
-    const [displayMatch, setDisplayMatch] = useState<Match[]>();
-
-    const handleSoloGame = () => {
-        setMatchType("SOLO");
-        setDisplayMatch(fetchSoloMatches);
-    };
-
-    const handleTeamGame = () => {
-        setMatchType("TEAM");
-        setDisplayMatch(fetchTeamMatches);
-    };
+const RecentGame: FC<RecentGameProps> = ({ FetchRecentUserMatch }) => {
+    const RecentMatch = FetchRecentUserMatch;
 
     return (
         <>
-            <div className="flex justify-center space-x-20 z-50 fixed bottom-10 w-full">
-                <Button onClick={handleSoloGame} size={"lg"}>SOLO</Button>
-                <Button onClick={handleTeamGame} size={"lg"}>TEAM</Button>
-            </div>
             <Table className="w-88 m-auto mb-25">
-                <TableCaption>⚽ Choose your match type ⚽</TableCaption>
+                <TableCaption>⚽ Your recent Matches ⚽</TableCaption>
                 <TableHeader className="bg-gray-100">
                     <TableRow>
                         <TableHead className="w-[100px]">Match</TableHead>
@@ -50,48 +30,34 @@ const ScoreTable: FC<ScoreTableProps> = ({
                     </TableRow>
                 </TableHeader>
                 <TableBody>
-                    {displayMatch &&
-                        displayMatch.map((match) => (
+                    {RecentMatch &&
+                        RecentMatch.map((match) => (
                             <TableRow key={match.id}>
                                 <TableCell>
                                     <span
                                         className={
-                                            matchType === "SOLO"
-                                                ? match.player1 === match.winner
-                                                    ? "font-bold"
-                                                    : ""
-                                                : match.team1 === match.winner
+                                            match.player1 === match.winner
                                                 ? "font-bold"
                                                 : ""
                                         }
                                     >
-                                        {matchType === "SOLO"
-                                            ? match.player1
-                                            : match.team1}
+                                        {match.player1}
                                     </span>
                                     <span>{" VS "}</span>
                                     <span
                                         className={
-                                            matchType === "SOLO"
-                                                ? match.player2 === match.winner
-                                                    ? "font-bold"
-                                                    : ""
-                                                : match.team2 === match.winner
+                                            match.player2 === match.winner
                                                 ? "font-bold"
                                                 : ""
                                         }
                                     >
-                                        {matchType === "SOLO" ? match.player2 : match.team2}
+                                        {match.player2}
                                     </span>
                                 </TableCell>
                                 <TableCell className="text-center">
                                     <span
                                         className={
-                                            matchType === "SOLO"
-                                                ? match.player2 === match.winner
-                                                    ? "font-bold"
-                                                    : ""
-                                                : match.team2 === match.winner
+                                            match.player2 === match.winner
                                                 ? "font-bold"
                                                 : ""
                                         }
@@ -101,11 +67,7 @@ const ScoreTable: FC<ScoreTableProps> = ({
                                     <span>{" / "}</span>
                                     <span
                                         className={
-                                            matchType === "SOLO"
-                                                ? match.player2 === match.winner
-                                                    ? "font-bold"
-                                                    : ""
-                                                : match.team2 === match.winner
+                                            match.player2 === match.winner
                                                 ? "font-bold"
                                                 : ""
                                         }
@@ -124,4 +86,4 @@ const ScoreTable: FC<ScoreTableProps> = ({
     );
 };
 
-export default ScoreTable;
+export default RecentGame;

@@ -16,7 +16,7 @@ import {
     SelectValue,
 } from "@/components/ui/select";
 import { useState, FC } from "react";
-import SelectPlayer from "./SelectPlayer";
+import SelectPlayer from "../molecules/SelectPlayer";
 import { FriendUserList } from "@/utils/type";
 
 type GameModeSelectorProps = {

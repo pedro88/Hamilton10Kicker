@@ -1,5 +1,5 @@
 import React from "react";
-import NewUserForm from "../../components/NewUserForm";
+import NewUserForm from "@/components/organisms/NewUserForm";
 
 const NewAccountPage = () => {
     return (

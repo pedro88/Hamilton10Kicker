@@ -1,4 +1,4 @@
-import ScoreTable from "@/components/ScoreTable";
+import ScoreTable from "@/components/organisms/ScoreTable";
 import { Button } from "@/components/ui/button";
 import {
     fetchSoloMatches,
