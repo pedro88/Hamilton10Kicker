@@ -8,7 +8,7 @@ const router = express.Router();
 router.post("/register", async (res: Response, req: Request) => {
     const saltRounds = 10;
     const userPassword = "12345678";
-    let salty;
+
     await bcrypt.genSalt(saltRounds, (err: string, salt: string) => {
         if (err) {
             console.log("No salt... : ", err);
@@ -20,9 +20,9 @@ router.post("/register", async (res: Response, req: Request) => {
                 console.log(error)
                 return;
             }
-        
-        // Hashing successful, 'hash' contains the hashed password
+
         console.log('Hashed password:', hash);
+        res.send({message: `The password : ${hash}`})
         });
 
     });
