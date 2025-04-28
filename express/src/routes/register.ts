@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 const bcrypt = require("bcrypt");
 const router = express.Router();
+router.use(express.json());
 
 // I'm stopped here. The doc
 // https://www.freecodecamp.org/news/how-to-hash-passwords-with-bcrypt-in-nodejs/
