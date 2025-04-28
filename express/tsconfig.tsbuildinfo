@@ -1,1 +1,1 @@
-{"root":["./src/index.ts","./src/routes/register.ts","./src/routes/source.ts","./src/routes/test.ts","./src/services/dbintercat.ts","./src/utils/type.ts"],"version":"5.8.3"}
+{"root":["./src/index.ts","./src/middlewares/logger.ts","./src/routes/register.ts","./src/routes/source.ts","./src/routes/test.ts","./src/services/dbintercat.ts","./src/utils/type.ts"],"version":"5.8.3"}
