@@ -18,6 +18,7 @@ import {
 import { useState, FC } from "react";
 import SelectPlayer from "../molecules/SelectPlayer";
 import { FriendUserList } from "@/lib/type";
+import ScoreSelector from "./ScoreSelector";
 
 type GameModeSelectorProps = {
     FetchFriendWithUserId: FriendUserList[];
@@ -56,8 +57,9 @@ const GameModeSelector: FC<GameModeSelectorProps> = ({
                                 </Label>
                                 <SelectPlayer
                                     FetchFriendWithUserId={
-                                        FetchFriendWithUserId}
-                                        onPlayerSelect={setAlly}
+                                        FetchFriendWithUserId
+                                    }
+                                    onPlayerSelect={setAlly}
                                 />
                             </>
                         ) : (
@@ -92,7 +94,16 @@ const GameModeSelector: FC<GameModeSelectorProps> = ({
                 </form>
             </CardContent>
             <CardFooter className="flex justify-end">
-                <Button onClick={() => console.log(`Ally : ${ally}, challenger1 : ${challenger1}, challenger2 : ${challenger2}`)}>GO ⚽</Button>
+                <Button
+                    onClick={() =>
+                        console.log(
+                            `Ally : ${ally}, challenger1 : ${challenger1}, challenger2 : ${challenger2}`
+                        )
+                    }
+                >
+                    <ScoreSelector />
+                </Button>
+                
             </CardFooter>
         </Card>
     );
