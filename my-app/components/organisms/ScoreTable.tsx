@@ -36,7 +36,7 @@ const ScoreTable: FC<ScoreTableProps> = ({
 
     return (
         <>
-            <div className="flex justify-center space-x-20 z-50 fixed bottom-10 w-full">
+            <div className="flex justify-center space-x-50 z-50 fixed bottom-10">
                 <Button onClick={handleSoloGame} size={"lg"}>SOLO</Button>
                 <Button onClick={handleTeamGame} size={"lg"}>TEAM</Button>
             </div>
