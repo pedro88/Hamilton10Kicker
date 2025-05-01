@@ -3,7 +3,6 @@ import React from "react";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { newUserSchema, NewUser } from "@/lib/schema/newUser";
 import SelectCountry from "@/components/molecules/SelectCountry";
 import { allCountry } from "@/app/serverAction/fetchCountry";
