@@ -23,13 +23,17 @@ const Login = () => {
                         />
                     </div>
                     <Button className="w-full h-10">Sign in</Button>
+                    <Link href="/new-account" className="flex justify-center">
+                        <p className="underline">Create a new account</p>
+                    </Link>
                     <hr className="mb-3" />
-                    <div className="flex justify-center">
+                    {/* OLD CREATE ACCOUNT BUTTON */}
+                    {/* <div className="flex justify-center">
                         <h1 className="text-2xl">No account ?</h1>
                         <Link href="/new-account" className="ml-5">
                             <Button size="sm">Create</Button>
                         </Link>
-                    </div>
+                    </div> */}
                 </form>
             </div>
             <br />
