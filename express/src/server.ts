@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import { authJwt } from "./middleware/authJwt";
 import { logger } from "./middleware/logger";
 import { AppDataSource } from "./config/database";
+
 const cors = require("cors");
 
 dotenv.config();
