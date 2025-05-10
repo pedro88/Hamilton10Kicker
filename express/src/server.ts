@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import { authJwt } from "./middleware/authJwt";
+// import { authJwt } from "./middleware/authJwt";
 import { logger } from "./middleware/logger";
 import { AppDataSource } from "./config/database";
 import "reflect-metadata";
@@ -15,6 +15,7 @@ const startServer = async () => {
     try {
         await AppDataSource.initialize();
         console.log("Connected to db");
+        
 
         const app = express();
 
@@ -27,11 +28,11 @@ const startServer = async () => {
 
         app.use(cors(corsOptions));
 
-        const authRouter = require("./routes/auth");
-        const usersRouter = require("./routes/users");
+        // const authRouter = require("./routes/auth");
+        // const usersRouter = require("./routes/users");
 
-        app.use("/", authRouter);
-        app.use("/users", usersRouter);
+        // app.use("/", authRouter);
+        // app.use("/users", usersRouter);
 
         app.get(
             "/",
