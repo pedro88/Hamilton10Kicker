@@ -1,12 +1,15 @@
 import express, { Request, Response } from "express";
-import dotenv from "dotenv";
 import { authJwt } from "./middleware/authJwt";
 import { logger } from "./middleware/logger";
 import { AppDataSource } from "./config/database";
+import "reflect-metadata";
 
 const cors = require("cors");
 
+import dotenv from "dotenv";
 dotenv.config();
+
+console.log(process.env.DB_HOST)
 
 const startServer = async () => {
     try {
