@@ -1,1 +1,1 @@
-{"root":["./src/server.ts","./src/config/database.ts","./src/lib/connectiontype.ts","./src/middleware/authjwt.ts","./src/middleware/logger.ts","./src/routes/auth.ts","./src/routes/users.ts","./src/services/dbinteract.ts"],"version":"5.8.3"}
+{"root":["./src/server.ts","./src/config/database.ts","./src/entity/users.ts","./src/lib/connectiontype.ts","./src/middleware/authjwt.ts","./src/middleware/logger.ts","./src/routes/auth.ts","./src/routes/users.ts"],"version":"5.8.3"}
