@@ -35,7 +35,6 @@ const startServer = async () => {
 
         app.get(
             "/",
-            authJwt,
             logger,
             (request: Request, response: Response) => {
                 response.status(200).send({ message: "The api work well !" });
