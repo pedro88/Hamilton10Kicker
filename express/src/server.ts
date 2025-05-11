@@ -3,7 +3,7 @@ import express, { Request, Response } from "express";
 import { logger } from "./middleware/logger";
 import { AppDataSource } from "./config/database";
 import "reflect-metadata";
-import authRouter from "./routes/auth";
+import authRouter from "./routes/auth.routes";
 
 const cors = require("cors");
 

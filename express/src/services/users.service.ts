@@ -23,6 +23,13 @@ export class UsersService {
         return await this.usersRepository.findOneBy({ email });
     }
 
+    async loginCredential(email: string): Promise<Users | null> {
+        return await this.usersRepository.findOne({
+            where: { email },
+            select: [ "id", "email", "username", "password" ]
+        });
+    }
+
     async create(userData: RegisterBody): Promise<Users> {
         // hash
         const salt = await bcrypt.genSalt(10);
