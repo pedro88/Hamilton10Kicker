@@ -7,6 +7,7 @@ import {
 } from "typeorm";
 import { Friend } from "./Friend.entity";
 import { SoloGame } from "./SoloGame.entity";
+import { Team } from "./Team.entity";
 
 @Entity()
 export class Users {
@@ -63,4 +64,10 @@ export class Users {
 
     @OneToMany(() => SoloGame, (game) => game.looser_id)
     looser_id!: SoloGame[];
+
+    @OneToMany(() => Team, (team) => team.player_id1)
+    team_player_id1!: Team[];
+
+    @OneToMany(() => Team, (team) => team.player_id2)
+    team_player_id2!: Team[];
 }

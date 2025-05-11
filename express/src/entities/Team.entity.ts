@@ -1,4 +1,5 @@
 import {
+    Column,
     CreateDateColumn,
     Entity,
     ManyToOne,
@@ -7,21 +8,24 @@ import {
 import { Users } from "./Users.entity";
 
 @Entity()
-export class SoloGame {
+export class Team {
     @PrimaryGeneratedColumn()
     id!: number;
 
-    @ManyToOne(() => Users, (user) => user.player_id1)
+    @Column()
+    name!: string;
+
+    @ManyToOne(() => Users, (user) => user.friends)
     player_id1!: number;
 
-    @ManyToOne(() => Users, (user) => user.player_id2)
+    @ManyToOne(() => Users, (user) => user.friendsOf)
     player_id2!: number;
 
-    @ManyToOne(() => Users, (user) => user.winner_id)
-    winner_id!: number;
+    @Column()
+    won_game: number = 0;
 
-    @ManyToOne(() => Users, (user) => user.looser_id)
-    looser_id!: number;
+    @Column()
+    lost_game: number = 0;
 
     @CreateDateColumn()
     created_at!: Date;
