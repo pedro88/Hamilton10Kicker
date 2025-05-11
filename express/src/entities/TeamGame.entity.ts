@@ -13,10 +13,10 @@ export class TeamGame {
     id!: number;
 
     @ManyToOne(() => Team, (team) => team.team_id1)
-    team_id1!: number;
+    team_1!: Team[];
 
     @ManyToOne(() => Team, (team) => team.team_id2)
-    team_id2!: number;
+    team_2!: Team[];
 
     @Column()
     won_game: number = 0;

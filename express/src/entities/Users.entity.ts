@@ -47,27 +47,27 @@ export class Users {
     @CreateDateColumn()
     created_at!: Date;
 
-    @OneToMany(() => Friend, (friend) => friend.user_id)
+    @OneToMany(() => Friend, (friend) => friend.user)
     friends!: Friend[];
 
-    @OneToMany(() => Friend, (friend) => friend.friend_id)
+    @OneToMany(() => Friend, (friend) => friend.friend)
     friendsOf!: Friend[];
 
-    @OneToMany(() => SoloGame, (game) => game.player_id1)
+    @OneToMany(() => SoloGame, (game) => game.player1)
     player_id1!: SoloGame[];
 
-    @OneToMany(() => SoloGame, (game) => game.player_id2)
+    @OneToMany(() => SoloGame, (game) => game.player2)
     player_id2!: SoloGame[];
 
-    @OneToMany(() => SoloGame, (game) => game.winner_id)
+    @OneToMany(() => SoloGame, (game) => game.winner)
     winner_id!: SoloGame[];
 
-    @OneToMany(() => SoloGame, (game) => game.looser_id)
+    @OneToMany(() => SoloGame, (game) => game.looser)
     looser_id!: SoloGame[];
 
-    @OneToMany(() => Team, (team) => team.player_id1)
+    @OneToMany(() => Team, (team) => team.player1)
     team_player_id1!: Team[];
 
-    @OneToMany(() => Team, (team) => team.player_id2)
+    @OneToMany(() => Team, (team) => team.player2)
     team_player_id2!: Team[];
 }
