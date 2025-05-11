@@ -1,5 +1,12 @@
-import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import {
+    Column,
+    CreateDateColumn,
+    Entity,
+    OneToMany,
+    PrimaryGeneratedColumn,
+} from "typeorm";
 import { Friend } from "./Friend.entity";
+import { SoloGame } from "./SoloGame.entity";
 
 @Entity()
 export class Users {
@@ -44,4 +51,16 @@ export class Users {
 
     @OneToMany(() => Friend, (friend) => friend.friend_id)
     friendsOf!: Friend[];
+
+    @OneToMany(() => SoloGame, (game) => game.player_id1)
+    player_id1!: SoloGame[];
+
+    @OneToMany(() => SoloGame, (game) => game.player_id2)
+    player_id2!: SoloGame[];
+
+    @OneToMany(() => SoloGame, (game) => game.winner_id)
+    winner_id!: SoloGame[];
+
+    @OneToMany(() => SoloGame, (game) => game.looser_id)
+    looser_id!: SoloGame[];
 }
