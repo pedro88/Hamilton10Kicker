@@ -1,15 +1,18 @@
 import express, { Request, Response } from "express";
 import { EmailExist, LoginBody, RegisterBody } from "../lib/connectionType";
 import { logger } from "../middleware/logger";
+import { UsersService } from "../services/users.service";
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const router = express.Router();
-router.use(express.json());
+const authRouter = express.Router();
+authRouter.use(express.json());
+
+const usersService = new UsersService();
 
 // documentation about the password verification and hash
 // https://www.freecodecamp.org/news/how-to-hash-passwords-with-bcrypt-in-nodejs/
 
-router.post("/register", logger, async (req: Request, res: Response) => {
+authRouter.post("/register", logger, async (req: Request, res: Response) => {
     let theBody: RegisterBody = req.body;
     
     if (
@@ -58,8 +61,8 @@ router.post("/register", logger, async (req: Request, res: Response) => {
         return;
     }
     
-    const verifyEmail: EmailExist[] = await _db.emailExist(theBody.email);
-    if (verifyEmail.length > 0) {
+    const verifyEmail= await usersService.findByEmail(theBody.email)
+    if (verifyEmail !== null) {
         res.status(409).send({
             success: false,
             message: "This email is taken",
@@ -68,10 +71,7 @@ router.post("/register", logger, async (req: Request, res: Response) => {
     }
     
 
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(theBody.password, salt);
-    theBody.password = hashedPassword;
-    _db.createUser(theBody);
+    await usersService.create(theBody)
 
     res.status(201).send({
         success: true,
@@ -144,4 +144,4 @@ router.post("/register", logger, async (req: Request, res: Response) => {
 //     });
 // });
 
-// module.exports = router;
+export default authRouter;

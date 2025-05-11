@@ -24,17 +24,17 @@ export class Users {
     xp: number = 0;
 
     @Column()
-    wongame: number = 0;
+    won_game: number = 0;
 
     @Column()
-    lostgame: number = 0;
+    lost_game: number = 0;
 
     @Column()
-    wonteamgame: number = 0;
+    won_team_game: number = 0;
 
     @Column()
-    lostteamgame: number = 0;
+    lost_team_game: number = 0;
 
     @CreateDateColumn()
-    createdat!: Date;
+    created_at!: Date;
 }

@@ -3,11 +3,14 @@ import express, { Request, Response } from "express";
 import { logger } from "./middleware/logger";
 import { AppDataSource } from "./config/database";
 import "reflect-metadata";
+import authRouter from "./routes/auth";
 
 const cors = require("cors");
 
 import dotenv from "dotenv";
 dotenv.config();
+
+const PORT = process.env.SERVER_PORT
 
 console.log(process.env.DB_HOST)
 
@@ -28,10 +31,7 @@ const startServer = async () => {
 
         app.use(cors(corsOptions));
 
-        // const authRouter = require("./routes/auth");
-        // const usersRouter = require("./routes/users");
-
-        // app.use("/", authRouter);
+        app.use("/", authRouter);
         // app.use("/users", usersRouter);
 
         app.get(
@@ -42,8 +42,8 @@ const startServer = async () => {
             }
         );
 
-        app.listen(process.env.PORT, () => {
-            console.log("Server is started");
+        app.listen(PORT, () => {
+            console.log("Server is started ! => PORT :", PORT);
         });
     } catch (error) {
         console.error("Error with the DB", error);
