@@ -3,9 +3,11 @@ import {
     CreateDateColumn,
     Entity,
     ManyToOne,
+    OneToMany,
     PrimaryGeneratedColumn,
 } from "typeorm";
 import { Users } from "./Users.entity";
+import { TeamGame } from "./TeamGame.entity";
 
 @Entity()
 export class Team {
@@ -15,10 +17,10 @@ export class Team {
     @Column()
     name!: string;
 
-    @ManyToOne(() => Users, (user) => user.friends)
+    @ManyToOne(() => Users, (user) => user.team_player_id1)
     player_id1!: number;
 
-    @ManyToOne(() => Users, (user) => user.friendsOf)
+    @ManyToOne(() => Users, (user) => user.team_player_id2)
     player_id2!: number;
 
     @Column()
@@ -29,4 +31,10 @@ export class Team {
 
     @CreateDateColumn()
     created_at!: Date;
+
+    @OneToMany(() => TeamGame, (teamgame) => teamgame.team_id1)
+    team_id1!: number;
+
+    @OneToMany(() => TeamGame, (teamgame) => teamgame.team_id2)
+    team_id2!: number;
 }
