@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-// import { authJwt } from "./middleware/authJwt";
+import { authJwt } from "./middleware/authJwt";
 import { logger } from "./middleware/logger";
 import { AppDataSource } from "./config/database";
 import "reflect-metadata";
@@ -32,12 +32,12 @@ const startServer = async () => {
         app.use(cors(corsOptions));
 
         app.use("/", authRouter);
-        // app.use("/users", usersRouter);
 
         app.get(
             "/",
             logger,
-            (request: Request, response: Response) => {
+            authJwt,
+            (response: Response) => {
                 response.status(200).send({ message: "The api work well !" });
             }
         );
