@@ -10,7 +10,7 @@ import {
     TableRow,
 } from "../ui/table";
 import { Button } from "../ui/button";
-import { Match } from "@/lib/type";
+import { Match } from "@/lib/types/type";
 
 type ScoreTableProps = {
     fetchSoloMatches: Match[];

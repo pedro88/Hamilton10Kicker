@@ -25,3 +25,4 @@ export type Match = {
     winner: string;
     created_at: string;
 };
+

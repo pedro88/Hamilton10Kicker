@@ -6,7 +6,7 @@ import {
     DropdownMenuLabel,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { FriendUserList } from "@/lib/type";
+import { FriendUserList } from "@/lib/types/type";
 import { useState, FC } from "react";
 
 type SelectPlayerProps = {
