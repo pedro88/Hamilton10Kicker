@@ -1,4 +1,10 @@
 
+export type ApiResponseFormat = {
+    success: boolean;
+    message: string;
+    content?: any;
+}
+
 export type User = {
     username: string;
     xp: number;

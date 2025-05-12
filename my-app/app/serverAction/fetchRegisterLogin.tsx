@@ -1,10 +1,13 @@
 "use server";
 import { LoginCredential, RegisterCredential } from "@/lib/types/authTypes";
+import { ApiResponseFormat } from "@/lib/types/type";
 import { cookies } from "next/headers";
 
 const Api: string = process.env.API_URL || "NO API";
 
-export const createANewUser = async (body: RegisterCredential) => {
+export const createANewUser = async (
+    body: RegisterCredential
+): Promise<ApiResponseFormat> => {
     try {
         const response = await fetch(`${Api}/register`, {
             method: "POST",
@@ -19,12 +22,16 @@ export const createANewUser = async (body: RegisterCredential) => {
 
         if (response.status === 201) {
             const data = await response.json();
-            return data;
+            return {
+                success: true,
+                message: "Your account is created !",
+                content: data,
+            };
         }
 
         return { success: false, message: "We have a problem..." };
     } catch (error) {
-        return { success: false, message: "Somethin wrong...", error: error };
+        return { success: false, message: `Something wrong... : ${error}` };
     }
 };
 

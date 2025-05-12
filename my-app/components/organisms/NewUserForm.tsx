@@ -6,6 +6,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { newUserSchema, NewUser } from "@/lib/schema/newUser";
 import SelectCountry from "@/components/molecules/SelectCountry";
 import { allCountry } from "@/app/serverAction/fetchCountry";
+import { redirect } from "next/navigation";
+import { createANewUser } from "@/app/serverAction/fetchRegisterLogin";
 
 const RegisterForm = () => {
     const {
@@ -19,15 +21,16 @@ const RegisterForm = () => {
 
     const [disableButton, setDisableButton] = useState(false);
 
-    const createANewUser: SubmitHandler<NewUser> = (data) => {
+    const handleCreateNewUser: SubmitHandler<NewUser> = async (data) => {
         setDisableButton(true);
-        console.log(data);
+        const response = await createANewUser(data);
+        if (response.success) return redirect("/login");
     };
 
     return (
         <form
             className="flex flex-col space-y-6 m-4"
-            onSubmit={handleSubmit(createANewUser)}
+            onSubmit={handleSubmit(handleCreateNewUser)}
         >
             <div className="flex items-center">
                 <label className="w-24">Username</label>
