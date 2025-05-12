@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -7,17 +7,20 @@ import { newUserSchema, NewUser } from "@/lib/schema/newUser";
 import SelectCountry from "@/components/molecules/SelectCountry";
 import { allCountry } from "@/app/serverAction/fetchCountry";
 
-const NewUserForm = () => {
+const RegisterForm = () => {
     const {
         register,
         handleSubmit,
         control,
         formState: { errors },
     } = useForm<NewUser>({
-        resolver: zodResolver(newUserSchema)
+        resolver: zodResolver(newUserSchema),
     });
 
+    const [disableButton, setDisableButton] = useState(false);
+
     const createANewUser: SubmitHandler<NewUser> = (data) => {
+        setDisableButton(true);
         console.log(data);
     };
 
@@ -83,10 +86,18 @@ const NewUserForm = () => {
             </div>
 
             <div>
-                <Button type="submit" className="w-full">Create</Button>
+                <Button
+                    type="submit"
+                    disabled={disableButton}
+                    className={`w-full ${
+                        disableButton && "animate-bounce"
+                    }`}
+                >
+                    Create
+                </Button>
             </div>
         </form>
     );
 };
 
-export default NewUserForm;
+export default RegisterForm;

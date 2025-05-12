@@ -23,7 +23,7 @@ const Login = () => {
                         />
                     </div>
                     <Button className="w-full h-10">Sign in</Button>
-                    <Link href="/new-account" className="flex justify-center">
+                    <Link href="/register" className="flex justify-center">
                         <p className="underline">Create a new account</p>
                     </Link>
                     <hr className="mb-3" />
