@@ -1,17 +1,41 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import { useForm, SubmitHandler, Controller } from "react-hook-form";
+import { LoginType, loginSchema } from "@/lib/schema/newUser";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 const Login = () => {
+    const {
+        register,
+        handleSubmit,
+        control,
+        formState: { errors },
+    } = useForm<LoginType>({
+        resolver: zodResolver(loginSchema),
+    });
+
+    const [disableButton, setDisableButton] = useState(false);
+
+    const handleLogin: SubmitHandler<LoginType> = async (data) => {
+        setDisableButton(true);
+        console.log(data);
+        setTimeout(() => setDisableButton(false),2000)
+    };
+
     return (
         <div className="flex-col justify-center ">
             <div className=" w-96 h-40 p-5">
-                <form action="" className="flex flex-col space-y-5 m-4">
+                <form
+                    onSubmit={handleSubmit(handleLogin)}
+                    className="flex flex-col space-y-5 m-4"
+                >
                     <div className="flex items-center">
                         <input
                             type="text"
-                            placeholder="Username"
+                            placeholder="Email"
+                            {...register("email")}
                             className="flex-1 border-2 rounded p-1"
                         />
                     </div>
@@ -19,10 +43,15 @@ const Login = () => {
                         <input
                             type="password"
                             placeholder="Password"
+                            {...register("password")}
                             className="flex-1 border-2 rounded p-1"
                         />
                     </div>
-                    <Button className="w-full h-10">Sign in</Button>
+                    <Button 
+                    disabled={disableButton} 
+                    className={`w-full h-10 ${disableButton && "animate-bounce"}`}>
+                        Sign in
+                    </Button>
                     <Link href="/register" className="flex justify-center">
                         <p className="underline">Create a new account</p>
                     </Link>

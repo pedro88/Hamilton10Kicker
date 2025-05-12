@@ -24,7 +24,8 @@ const RegisterForm = () => {
     const handleCreateNewUser: SubmitHandler<NewUser> = async (data) => {
         setDisableButton(true);
         const response = await createANewUser(data);
-        if (response.success) return redirect("/login");
+        if (response.success) return redirect("/");
+        console.log("first")
     };
 
     return (

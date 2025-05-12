@@ -7,4 +7,10 @@ export const newUserSchema = z.object({
     country: z.string().min(2, "Country in invalid")
 });
 
+export const loginSchema = z.object({
+    email: z.string().min(3).nonempty(),
+    password: z.string().min(8).nonempty()
+});
+
 export type NewUser = z.infer<typeof newUserSchema>;
+export type LoginType = z.infer<typeof loginSchema>;
