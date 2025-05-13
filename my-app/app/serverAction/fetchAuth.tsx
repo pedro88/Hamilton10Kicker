@@ -7,7 +7,7 @@ const Api: string = process.env.API_URL || "NO API";
 
 export const createANewUser = async (
     body: RegisterCredential
-): Promise<ApiResponseFormat> => {
+): Promise<ApiResponseFormat<RegisterCredential>> => {
     try {
         const response = await fetch(`${Api}/register`, {
             method: "POST",
@@ -35,7 +35,9 @@ export const createANewUser = async (
     }
 };
 
-export const login = async (body: LoginCredential): Promise<ApiResponseFormat> => {
+export const login = async (
+    body: LoginCredential
+): Promise<ApiResponseFormat<LoginCredential>> => {
     try {
         const response = await fetch(`${Api}/login`, {
             method: "POST",
@@ -62,11 +64,11 @@ export const login = async (body: LoginCredential): Promise<ApiResponseFormat> =
             path: "/",
         });
 
-            return {
-                success: true,
-                message: "You are logged !",
-                content: data,
-            };
+        return {
+            success: true,
+            message: "You are logged !",
+            content: data,
+        };
     } catch (error) {
         return { success: false, message: `Somthing wrong... ${error}` };
     }

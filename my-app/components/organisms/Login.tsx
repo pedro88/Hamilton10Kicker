@@ -2,20 +2,16 @@
 import React, { useState } from "react";
 import { Button } from "../ui/button";
 import Link from "next/link";
-import { useForm, SubmitHandler, Controller } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { LoginType, loginSchema } from "@/lib/schema/newUser";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { login } from "@/app/serverAction/fetchAuth";
 import { redirect } from "next/navigation";
 import { ApiResponseFormat } from "@/lib/types/type";
+import { LoginCredential } from "@/lib/types/authTypes";
 
 const Login = () => {
-    const {
-        register,
-        handleSubmit,
-        control,
-        formState: { errors },
-    } = useForm<LoginType>({
+    const { register, handleSubmit } = useForm<LoginType>({
         resolver: zodResolver(loginSchema),
     });
 
@@ -24,7 +20,7 @@ const Login = () => {
 
     const handleLogin: SubmitHandler<LoginType> = async (data) => {
         setDisableButton(true);
-        const response: ApiResponseFormat = await login(data);
+        const response: ApiResponseFormat<LoginCredential> = await login(data);
 
         if (response.success == true) return redirect("/home");
 

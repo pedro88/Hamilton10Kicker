@@ -1,8 +1,8 @@
 
-export type ApiResponseFormat = {
+export type ApiResponseFormat<T> = {
     success: boolean;
     message: string;
-    content?: any;
+    content?: T;
 }
 
 export type User = {

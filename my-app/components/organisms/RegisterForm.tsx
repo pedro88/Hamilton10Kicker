@@ -8,6 +8,8 @@ import SelectCountry from "@/components/molecules/SelectCountry";
 import { allCountry } from "@/app/serverAction/fetchCountry";
 import { redirect } from "next/navigation";
 import { createANewUser } from "@/app/serverAction/fetchAuth";
+import { ApiResponseFormat } from "@/lib/types/type";
+import { RegisterCredential } from "@/lib/types/authTypes";
 
 const RegisterForm = () => {
     const {
@@ -23,7 +25,8 @@ const RegisterForm = () => {
 
     const handleCreateNewUser: SubmitHandler<NewUser> = async (data) => {
         setDisableButton(true);
-        const response = await createANewUser(data);
+        const response: ApiResponseFormat<RegisterCredential> =
+            await createANewUser(data);
         if (response.success) return redirect("/");
     };
 
@@ -92,9 +95,7 @@ const RegisterForm = () => {
                 <Button
                     type="submit"
                     disabled={disableButton}
-                    className={`w-full ${
-                        disableButton && "animate-bounce"
-                    }`}
+                    className={`w-full ${disableButton && "animate-bounce"}`}
                 >
                     Create
                 </Button>
