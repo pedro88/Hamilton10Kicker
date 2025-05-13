@@ -35,7 +35,7 @@ export const createANewUser = async (
     }
 };
 
-export const login = async (body: LoginCredential) => {
+export const login = async (body: LoginCredential): Promise<ApiResponseFormat> => {
     try {
         const response = await fetch(`${Api}/login`, {
             method: "POST",
@@ -45,7 +45,7 @@ export const login = async (body: LoginCredential) => {
             body: JSON.stringify(body),
         });
 
-        if (response.status === 400)
+        if (response.status === 401)
             return {
                 success: false,
                 message: "Email or password is incorrect",
@@ -62,14 +62,11 @@ export const login = async (body: LoginCredential) => {
             path: "/",
         });
 
-        if (response.status === 202)
             return {
                 success: true,
                 message: "You are logged !",
                 content: data,
             };
-
-        return;
     } catch (error) {
         return { success: false, message: `Somthing wrong... ${error}` };
     }

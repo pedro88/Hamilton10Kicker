@@ -1,5 +1,5 @@
 import React from "react";
-import RegisterForm from "@/components/organisms/NewUserForm";
+import RegisterForm from "@/components/organisms/RegisterForm";
 
 const NewAccountPage = () => {
     return (

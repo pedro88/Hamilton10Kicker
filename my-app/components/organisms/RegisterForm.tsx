@@ -7,7 +7,7 @@ import { newUserSchema, NewUser } from "@/lib/schema/newUser";
 import SelectCountry from "@/components/molecules/SelectCountry";
 import { allCountry } from "@/app/serverAction/fetchCountry";
 import { redirect } from "next/navigation";
-import { createANewUser } from "@/app/serverAction/fetchRegisterLogin";
+import { createANewUser } from "@/app/serverAction/fetchAuth";
 
 const RegisterForm = () => {
     const {
@@ -25,7 +25,6 @@ const RegisterForm = () => {
         setDisableButton(true);
         const response = await createANewUser(data);
         if (response.success) return redirect("/");
-        console.log("first")
     };
 
     return (
